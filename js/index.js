@@ -81,13 +81,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Rate values
+    // Rate values - CONTADOR ANIMADO (números cuentan desde 0)
     gsap.utils.toArray('.rate-value').forEach((el) => {
+      const finalValue = el.innerText;
+      const numericValue = parseInt(finalValue.replace(/\D/g, '')) || 0;
+
       gsap.from(el, {
         scale: 0.85,
         opacity: 0,
         duration: 0.35,
         ease: 'back.out(1.5)',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          once: true
+        }
+      });
+
+      // Animación de conteo numérico
+      gsap.to(el, {
+        innerText: numericValue,
+        duration: 2,
+        snap: { innerText: 1 },
+        modifiers: {
+          innerText: value => {
+            if (finalValue.includes('x')) return Math.floor(value) + 'x';
+            return Math.floor(value).toLocaleString();
+          }
+        },
         scrollTrigger: {
           trigger: el,
           start: 'top 90%',
@@ -146,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Siege stats
+    // Siege stats - CONTADOR ANIMADO
     const siegeStats = document.querySelectorAll('.siege-stat');
     if (siegeStats.length) {
       gsap.from(siegeStats, {
@@ -159,6 +180,32 @@ document.addEventListener('DOMContentLoaded', () => {
           trigger: '.siege-stats',
           start: 'top 80%',
           once: true
+        }
+      });
+
+      // Animar números de siege stats
+      siegeStats.forEach(stat => {
+        const valueEl = stat.querySelector('.siege-stat-value');
+        if (valueEl) {
+          const finalValue = valueEl.innerText;
+          const numericValue = parseInt(finalValue.replace(/\D/g, '')) || 0;
+
+          gsap.to(valueEl, {
+            innerText: numericValue,
+            duration: 1.5,
+            snap: { innerText: 1 },
+            modifiers: {
+              innerText: value => {
+                if (finalValue.includes('h')) return Math.floor(value) + 'h';
+                return Math.floor(value);
+              }
+            },
+            scrollTrigger: {
+              trigger: stat,
+              start: 'top 80%',
+              once: true
+            }
+          });
         }
       });
     }
