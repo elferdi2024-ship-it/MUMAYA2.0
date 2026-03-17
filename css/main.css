@@ -111,10 +111,17 @@
   --glow-amber: 0 0 30px rgba(234, 88, 12, 0.35), 0 0 60px rgba(234, 88, 12, 0.15);
   --glow-multi: 0 0 40px rgba(216, 168, 64, 0.3), 0 0 80px rgba(208, 48, 48, 0.2), 0 0 120px rgba(42, 170, 74, 0.1);
 
+  /* Nueva capa neón/fantasía */
+  --accent-neon: #35d07f;
+  --accent-ember: #f2a950;
+  --accent-royal: #7a5cff;
+  --glass: rgba(255, 255, 255, 0.04);
+  --bg-aurora: radial-gradient(circle at 20% 20%, rgba(53, 208, 127, 0.08), transparent 32%), radial-gradient(circle at 78% 16%, rgba(122, 92, 255, 0.12), transparent 36%), radial-gradient(circle at 64% 72%, rgba(242, 169, 80, 0.10), transparent 42%), linear-gradient(180deg, #060504 0%, #0a0806 35%, #0f0c0a 100%);
+
   /* Tipografía */
   --ff-display: 'Cormorant SC', Georgia, serif;
   --ff-serif: 'Cormorant Garamond', Georgia, serif;
-  --ff-ui: 'DM Sans', system-ui, sans-serif;
+  --ff-ui: 'Manrope', 'DM Sans', system-ui, sans-serif;
 
   /* Escala tipográfica */
   --text-xs: 9px;
@@ -127,7 +134,7 @@
   --text-3xl: 60px;
 
   /* Layout */
-  --pad-section: clamp(80px, 10vw, 140px);
+  --pad-section: clamp(64px, 8vw, 110px);
   --wrap: 1200px;
   --wrap-narrow: 900px;
   --wrap-wide: 1400px;
@@ -154,7 +161,7 @@ body {
   font-family: var(--ff-ui);
   font-size: var(--text-base);
   color: var(--bone);
-  background: var(--void);
+  background: var(--bg-aurora);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -231,12 +238,12 @@ textarea {
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.5s var(--transition), transform 0.5s var(--transition);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .js .reveal {
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .js .reveal.on {
@@ -339,17 +346,19 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  background: linear-gradient(135deg, var(--blood4), var(--blood5));
-  border: 1px solid var(--b-blood);
+  background: linear-gradient(135deg, var(--accent-neon), var(--accent-royal));
+  border: 1px solid rgba(53, 208, 127, 0.35);
   font-family: var(--ff-ui);
   font-size: var(--text-sm);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--white-warm);
+  color: #0b0a09;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.22);
   transition: all 0.3s var(--transition);
   position: relative;
   overflow: hidden;
+  border-radius: 14px;
 }
 
 /* Ripple effect */
@@ -372,9 +381,10 @@ textarea {
 }
 
 .btn-p:hover {
-  background: linear-gradient(135deg, var(--blood5), var(--blood4));
-  box-shadow: var(--glow-blood);
+  background: linear-gradient(135deg, var(--accent-royal), var(--accent-neon));
+  box-shadow: 0 0 24px rgba(53, 208, 127, 0.35), 0 0 36px rgba(122, 92, 255, 0.25);
   transform: translateY(-2px);
+  color: #050403;
 }
 
 .btn-o {
@@ -382,17 +392,18 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  background: linear-gradient(135deg, var(--gold2), var(--gold3));
-  border: 1px solid var(--b-gold);
+  background: linear-gradient(135deg, var(--accent-ember), var(--gold3));
+  border: 1px solid rgba(242, 169, 80, 0.35);
   font-family: var(--ff-ui);
   font-size: var(--text-sm);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--void);
+  color: #0b0a09;
   transition: all 0.3s var(--transition);
   position: relative;
   overflow: hidden;
+  border-radius: 14px;
 }
 
 /* Ripple effect */
@@ -418,6 +429,7 @@ textarea {
   background: linear-gradient(135deg, var(--gold3), var(--gold4));
   box-shadow: var(--glow-gold);
   transform: translateY(-2px);
+  color: #050403;
 }
 
 .btn-ghost-xs {
@@ -520,20 +532,16 @@ nav#nav {
   right: 0;
   z-index: 1000;
   transition: all 0.4s var(--transition);
-  background: linear-gradient(180deg,
-      rgba(3, 2, 2, 0.95) 0%,
-      rgba(6, 5, 4, 0.90) 100%);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-bottom: 1px solid rgba(196, 144, 48, 0.15);
+  background: rgba(6, 5, 4, 0.86);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border-bottom: 1px solid rgba(53, 208, 127, 0.18);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(196, 144, 48, 0.08);
+    0 0 60px rgba(53, 208, 127, 0.08);
 }
 
 nav#nav.solid {
-  background: linear-gradient(180deg,
-      rgba(3, 2, 2, 0.97) 0%,
-      rgba(6, 5, 4, 0.93) 100%);
-  backdrop-filter: blur(30px) saturate(2);
+  background: rgba(6, 5, 4, 0.94);
+  backdrop-filter: blur(20px) saturate(2);
   border-bottom: 1px solid rgba(196, 144, 48, 0.25);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6),
     0 0 80px rgba(196, 144, 48, 0.12),
@@ -606,33 +614,12 @@ nav#nav.solid::after {
   transition: all 0.3s var(--transition);
   position: relative;
   font-weight: 500;
-  padding: 6px 0;
+  padding: 10px 0;
 }
 
 /* Gradiente de texto animado en hover */
 .nav-links a::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  color: var(--ivory);
-  background: linear-gradient(90deg,
-      var(--gold4) 0%,
-      var(--gold5) 50%,
-      var(--blood4) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  overflow: hidden;
-  transition: width 0.4s var(--transition);
-  white-space: nowrap;
-}
-
-.nav-links a:hover::before,
-.nav-links a.current::before {
-  width: 100%;
+  display: none;
 }
 
 .nav-links a:hover,
@@ -667,21 +654,19 @@ nav#nav.solid::after {
   background: var(--gold3);
 }
 
+.nav-links a:focus-visible {
+  outline: 2px solid rgba(53, 208, 127, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .nav-speed {
   color: var(--gold3) !important;
-  animation: nav-speed-pulse 2s ease-in-out infinite;
 }
 
 /* Efecto especial para Speed - gradiente gold→blood */
 .nav-speed::before {
-  background: linear-gradient(90deg,
-      var(--gold4) 0%,
-      var(--gold5) 30%,
-      var(--blood4) 70%,
-      var(--blood5) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: none;
 }
 
 @keyframes nav-speed-pulse {

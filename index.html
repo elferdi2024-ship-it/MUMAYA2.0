@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
@@ -188,9 +188,9 @@
         <div class="continent-grid">
           <div class="continent-content">
             <!-- Logo del Servidor -->
-            <div class="continent-logo reveal">
-              <img src="image/logo.png" alt="MU Maya S21" class="continent-logo-img">
-            </div>
+        <div class="continent-logo reveal">
+          <img src="image/logo.png" alt="MU Maya S21" class="continent-logo-img" loading="lazy" decoding="async">
+        </div>
             <div class="eyebrow reveal">Características del Servidor</div>
             <h2 class="reveal d1">El continente te espera con <em>nuevos desafíos</em></h2>
             <p class="continent-lead reveal d2">Un servidor construido desde cero para ofrecer la experiencia definitiva
@@ -274,6 +274,17 @@
       </div>
     </section>
 
+    <!-- Gallery Highlights -->
+    <section class="gallery-home">
+      <div class="wrap">
+        <div class="gallery-grid">
+          <div class="gallery-card reveal"><img src="image/Screenshots del servidor.jpg" alt="Gameplay Maya S21" loading="lazy" decoding="async"></div>
+          <div class="gallery-card reveal d1"><img src="image/Screenshots del servidor1.jpg" alt="Eventos Maya S21" loading="lazy" decoding="async"></div>
+          <div class="gallery-card reveal d2"><img src="image/castlesieeee.jpg" alt="Castle Siege" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Speed Server Teaser -->
     <section class="speed-teaser">
       <div class="speed-grid-bg"></div>
@@ -324,7 +335,7 @@
     <section class="crusader-section">
       <div class="crusader-content">
         <div class="crusader-image-container reveal">
-          <img src="image/season21.png" alt="Crusader Class" class="crusader-img" loading="lazy" decoding="async">
+          <img src="image/poderes crusader.jpg" alt="Crusader Class" class="crusader-img" loading="lazy" decoding="async">
         </div>
         <h2 class="crusader-title reveal d1"><em>Crusader</em></h2>
         <p class="crusader-subtitle reveal d2">La clase estrella del S21</p>
@@ -514,6 +525,28 @@
   <script src="js/core.js"></script>
   <script src="js/countdown.js"></script>
   <script src="js/index.js"></script>
+  <script>
+    // Simple lightbox for gallery-home
+    document.addEventListener('DOMContentLoaded', () => {
+      const gallery = document.querySelectorAll('.gallery-card img');
+      if (!gallery.length) return;
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:2000;';
+      const img = document.createElement('img');
+      img.style.maxWidth = '90vw';
+      img.style.maxHeight = '90vh';
+      overlay.appendChild(img);
+      overlay.onclick = () => overlay.style.display = 'none';
+      document.body.appendChild(overlay);
+      gallery.forEach(el => {
+        el.style.cursor = 'zoom-in';
+        el.addEventListener('click', () => {
+          img.src = el.src;
+          overlay.style.display = 'flex';
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

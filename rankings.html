@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankings · MU Maya S21</title>
+  <meta name="description" content="Rankings en vivo de MU Maya S21 · Top Reset, Master, Guild, Castle Siege y Speed.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap">
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .rank-hero {
+      position: relative;
+      min-height: 70vh;
+      display: grid;
+      place-items: center;
+      padding: 140px 24px 80px;
+      background: linear-gradient(120deg, rgba(5,4,3,0.65), rgba(5,4,3,0.8)), url('image/castlesiegue.png') center/cover no-repeat;
+    }
+    .rank-hero h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(42px, 8vw, 72px);
+      color: var(--white-warm);
+      text-align: center;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+    .rank-hero p { max-width: 760px; text-align: center; color: var(--bone2); font-size: var(--text-lg); margin-top: 12px; }
+    .rank-panels { max-width: 1280px; margin: -80px auto 80px; display: grid; gap: 20px; padding: 0 20px; }
+    .rank-card { background: rgba(10,8,6,0.86); border: 1px solid rgba(53,208,127,0.18); border-radius: 16px; padding: 22px; box-shadow: 0 18px 60px rgba(0,0,0,0.45); }
+    .rank-card h2 { display:flex; align-items:center; gap:10px; font-family: var(--ff-display); font-size: var(--text-xl); color: var(--white-warm); }
+    .rank-tabs { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+    .rank-tab { padding:10px 14px; border:1px solid rgba(53,208,127,0.25); border-radius:10px; color: var(--bone2); font-size: var(--text-sm); cursor:pointer; }
+    .rank-table { margin-top:14px; width:100%; border-collapse: collapse; font-family: var(--ff-ui); }
+    .rank-table th, .rank-table td { padding:10px 8px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.05); color: var(--bone); }
+    .rank-table th { color: var(--gold4); font-weight:600; letter-spacing:0.04em; }
+    .badge-guild { color: var(--white-warm); background: rgba(122,92,255,0.15); border:1px solid rgba(122,92,255,0.3); padding:4px 8px; border-radius:8px; font-size: var(--text-xs); }
+  </style>
+</head>
+<body>
+  <div id="grain"></div>
+  <canvas id="particles"></canvas>
+
+  <nav id="nav">
+    <div class="nav-in">
+      <a href="index.html" class="nav-logo">
+        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" fetchpriority="high">
+        <span class="s21-tag">S21</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-text="Servidor">Servidor</a></li>
+        <li><a href="speed.html" data-text="Speed">Speed</a></li>
+        <li><a href="rankings.html" class="current" data-text="Rankings">Rankings</a></li>
+        <li><a href="noticias.html" data-text="Noticias">Noticias</a></li>
+        <li><a href="descargar.html" data-text="Descargar">Descargar</a></li>
+      </ul>
+      <div class="nav-acts">
+        <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
+        <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
+      </div>
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="rank-hero">
+      <div>
+        <h1>Rankings en Vivo</h1>
+        <p>Top Reset, Master Level, Guilds, Castle Siege y Speed Server. Datos en tiempo real, listos para presumir tu progreso.</p>
+      </div>
+    </section>
+
+    <div class="rank-panels">
+      <div class="rank-card">
+        <h2><i data-lucide="trophy"></i> Top Reset</h2>
+        <div class="rank-tabs">
+          <button class="rank-tab">General</button>
+          <button class="rank-tab">Speed</button>
+          <button class="rank-tab">Master</button>
+        </div>
+        <table class="rank-table">
+          <thead><tr><th>#</th><th>Personaje</th><th>Clase</th><th>Reset</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Aztec</td><td>Blade Knight</td><td>999</td></tr>
+            <tr><td>2</td><td>Ixchel</td><td>Crusader</td><td>995</td></tr>
+            <tr><td>3</td><td>Kukulkan</td><td>Dark Lord</td><td>990</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rank-card">
+        <h2><i data-lucide="shield"></i> Castle Siege</h2>
+        <p style="color:var(--ash2); margin-top:6px;">Próxima batalla: sábado 21:00 GMT-3</p>
+        <table class="rank-table" style="margin-top:10px;">
+          <thead><tr><th>Alianza</th><th>Owner</th><th>Puntos</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge-guild">Teotihuacan</span></td><td>Atl</td><td>12,400</td></tr>
+            <tr><td><span class="badge-guild">Jaguar</span></td><td>Itzamna</td><td>11,050</td></tr>
+            <tr><td><span class="badge-guild">Quetzal</span></td><td>Chac</td><td>10,880</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-in">
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
+        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/core.js"></script>
+  <script src="js/rankings.js"></script>
+  <script>if(window.lucide){lucide.createIcons();}</script>
+</body>
+</html>

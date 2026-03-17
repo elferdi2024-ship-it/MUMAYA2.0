@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta · MU Maya S21</title>
+  <meta name="description" content="Ingresa o crea tu cuenta para jugar MU Maya S21.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .account-hero { min-height: 60vh; padding: 140px 24px 80px; display:grid; place-items:center;
+      background: linear-gradient(130deg, rgba(5,4,3,0.6), rgba(5,4,3,0.85)), url('image/crusaderfondo.jpg') center/cover no-repeat;
+      text-align:center; }
+    .account-hero h1 { font-family: var(--ff-display); font-size: clamp(42px,8vw,72px); color: var(--white-warm); }
+    .account-hero p { color: var(--bone2); max-width: 720px; font-size: var(--text-lg); margin-top: 12px; }
+    .account-panels { max-width: 1080px; margin: -70px auto 100px; padding: 0 20px; display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+    .acc-card { background: rgba(10,8,6,0.88); border:1px solid rgba(53,208,127,0.2); border-radius:16px; padding:22px; box-shadow:0 18px 60px rgba(0,0,0,0.45); display:flex; flex-direction:column; gap:14px; }
+    .acc-card h2 { font-family: var(--ff-display); color: var(--white-warm); font-size: var(--text-xl); display:flex; gap:10px; align-items:center;}
+    .acc-form { display:flex; flex-direction:column; gap:10px; }
+    .acc-form input { padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); background: rgba(5,4,3,0.7); color: var(--bone); }
+    .acc-form label { font-size: var(--text-sm); color: var(--ash2); }
+  </style>
+</head>
+<body>
+  <div id="grain"></div>
+  <canvas id="particles"></canvas>
+  <nav id="nav">
+    <div class="nav-in">
+      <a class="nav-logo" href="index.html"><img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img"><span class="s21-tag">S21</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Servidor</a></li>
+        <li><a href="speed.html">Speed</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="descargar.html">Descargar</a></li>
+      </ul>
+      <div class="nav-acts">
+        <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
+        <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
+      </div>
+      <button class="nav-tog" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="account-hero">
+      <div>
+        <h1>Accede al Continente</h1>
+        <p>Ingresa o crea tu cuenta para el Main o el Speed Server. Transfer 100% garantizado.</p>
+      </div>
+    </section>
+
+    <div class="account-panels" id="login">
+      <div class="acc-card">
+        <h2><i data-lucide="log-in"></i> Ingresar</h2>
+        <form class="acc-form">
+          <label>Usuario</label>
+          <input type="text" placeholder="Tu usuario">
+          <label>Contraseña</label>
+          <input type="password" placeholder="********">
+          <button type="button" class="btn-p">Ingresar</button>
+          <a class="btn-ghost-xs" href="#recuperar">Recuperar contraseña</a>
+        </form>
+      </div>
+
+      <div class="acc-card" id="registro">
+        <h2><i data-lucide="user-plus"></i> Crear Cuenta</h2>
+        <form class="acc-form">
+          <label>Email</label>
+          <input type="email" placeholder="email@ejemplo.com">
+          <label>Usuario</label>
+          <input type="text" placeholder="nick">
+          <label>Contraseña</label>
+          <input type="password" placeholder="********">
+          <button type="button" class="btn-o">Registrarme</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-in">
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
+        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/core.js"></script>
+  <script>if(window.lucide){lucide.createIcons();}</script>
+</body>
+</html>
