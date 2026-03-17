@@ -274,6 +274,33 @@
       </div>
     </section>
 
+    <!-- Road to Siege -->
+    <section class="gallery-home maya-border">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="section-tag">Road to Siege</div>
+          <h2 class="section-title">Próximos hitos del servidor</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">21 Mar · 20:00 GMT-3</div>
+            <div class="timeline-title">Speed Server · Inicio Oficial</div>
+            <div class="timeline-desc">EXP x500 primeras 24h, ranking por clase, transfer 100% al main.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">23 Mar</div>
+            <div class="timeline-title">Mini Siege de Práctica</div>
+            <div class="timeline-desc">Premios en WCoins y Ruud para alianzas top 3 · warm-up.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">28 Mar</div>
+            <div class="timeline-title">Castle Siege Oficial</div>
+            <div class="timeline-desc">Doble loot box para el propietario y medallón S21 para la alianza ganadora.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Gallery Highlights -->
     <section class="gallery-home">
       <div class="wrap">
@@ -295,6 +322,10 @@
           <div class="gs jade"></div>
           <div class="gs gold sm"></div>
           <div class="gl"></div>
+        </div>
+        <div class="badge-medal reveal" style="margin:0 auto 18px;">
+          <svg width="26" height="26" aria-hidden="true"><use href="#seal-s21"></use></svg>
+          Transfer 100% al Main · Evento 7 días
         </div>
         <div class="speed-teaser-grid">
           <!-- Mitad Izquierda: Imagen -->
@@ -547,6 +578,23 @@
       });
     });
   </script>
+
+  <!-- Sello S21 (inline reusable) -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="seal-s21" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="56" fill="url(#seal-grad)" stroke="rgba(53,208,127,0.6)" stroke-width="2"/>
+        <path d="M35 60c0-13.8 11.2-25 25-25s25 11.2 25 25-11.2 25-25 25-25-11.2-25-25z" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="2.5"/>
+        <text x="60" y="56" text-anchor="middle" fill="#fadc88" font-family="Cormorant SC" font-size="26" font-weight="700">S21</text>
+        <text x="60" y="76" text-anchor="middle" fill="#35d07f" font-family="Manrope" font-size="10" letter-spacing="2">MAYA</text>
+        <path d="M60 8v10M60 102v10M8 60h10M102 60h10" stroke="rgba(53,208,127,0.6)" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <linearGradient id="seal-grad" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="rgba(242,169,80,0.35)"/>
+        <stop offset="100%" stop-color="rgba(53,208,127,0.25)"/>
+      </linearGradient>
+    </defs>
+  </svg>
 </body>
 
 </html>

@@ -2182,6 +2182,102 @@
   }
 }
 
+/* ── MEDALLÓN / BADGE ── */
+.badge-medal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(242, 169, 80, 0.15), rgba(10, 8, 6, 0.85));
+  border: 1px solid rgba(53, 208, 127, 0.3);
+  color: var(--white-warm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ── PATRÓN MAYA ── */
+.maya-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.maya-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(53, 208, 127, 0.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(242, 169, 80, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.25;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(53, 208, 127, 0.8), rgba(122, 92, 255, 0.4));
+  box-shadow: 0 0 18px rgba(53, 208, 127, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 12px 14px 12px 22px;
+  background: rgba(10, 8, 6, 0.8);
+  border: 1px solid rgba(53, 208, 127, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-neon), var(--accent-royal));
+  box-shadow: 0 0 18px rgba(53, 208, 127, 0.5);
+}
+
+.timeline-date {
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ash2);
+}
+
+.timeline-title {
+  font-family: var(--ff-display);
+  font-size: var(--text-lg);
+  color: var(--white-warm);
+}
+
+.timeline-desc {
+  color: var(--bone);
+  font-size: var(--text-sm);
+  margin-top: 4px;
+}
+
 .download-content {
   text-align: center;
   margin: 0 auto;

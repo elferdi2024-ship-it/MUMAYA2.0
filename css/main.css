@@ -117,6 +117,7 @@
   --accent-royal: #7a5cff;
   --glass: rgba(255, 255, 255, 0.04);
   --bg-aurora: radial-gradient(circle at 20% 20%, rgba(53, 208, 127, 0.08), transparent 32%), radial-gradient(circle at 78% 16%, rgba(122, 92, 255, 0.12), transparent 36%), radial-gradient(circle at 64% 72%, rgba(242, 169, 80, 0.10), transparent 42%), linear-gradient(180deg, #060504 0%, #0a0806 35%, #0f0c0a 100%);
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.06' /%3E%3C/svg%3E");
 
   /* Tipografía */
   --ff-display: 'Cormorant SC', Georgia, serif;
@@ -162,9 +163,21 @@ body {
   font-size: var(--text-base);
   color: var(--bone);
   background: var(--bg-aurora);
+  background-blend-mode: overlay;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--noise);
+  mix-blend-mode: soft-light;
+  opacity: 0.4;
+  z-index: 1;
 }
 
 img,
@@ -537,6 +550,7 @@ nav#nav {
   border-bottom: 1px solid rgba(53, 208, 127, 0.18);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
     0 0 60px rgba(53, 208, 127, 0.08);
+  overflow: hidden;
 }
 
 nav#nav.solid {
@@ -546,6 +560,19 @@ nav#nav.solid {
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6),
     0 0 80px rgba(196, 144, 48, 0.12),
     0 0 120px rgba(208, 48, 48, 0.06);
+}
+
+nav#nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(53, 208, 127, 0.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(242, 169, 80, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.18;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
 }
 
 /* Línea decorativa en el nav */
@@ -775,12 +802,28 @@ nav#nav.solid::after {
   background: var(--void);
   border-top: 1px solid var(--b-stone);
   padding: var(--pad-section) 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+#footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(53, 208, 127, 0.08), transparent 70%),
+    linear-gradient(0deg, rgba(242, 169, 80, 0.08), transparent 70%);
+  opacity: 0.3;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
 }
 
 .footer-in {
   max-width: var(--wrap-wide);
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-grid {
