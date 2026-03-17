@@ -1,0 +1,53 @@
+/* filepath: css/rankings-styles.css */
+.rankings-section {
+    padding: 8rem 0;
+}
+
+.rankings-table-wrapper {
+    overflow-x: auto;
+    margin-top: 3rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+th {
+    text-align: left;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+td {
+    padding: 1.5rem;
+    background: var(--glass);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+td:first-child { border-left: 1px solid var(--glass-border); border-radius: 12px 0 0 12px; }
+td:last-child { border-right: 1px solid var(--glass-border); border-radius: 0 12px 12px 0; }
+
+.rank-badge {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.status-dot.online { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+.status-dot.offline { background: #ff4444; }
