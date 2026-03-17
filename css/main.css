@@ -1,22 +1,32 @@
-/* filepath: css/main.css */
-:root {
-    /* Color Palette - Maya Theme (Teal/Gold/Dark) */
-    --primary: 180 100% 50%;
-    /* #00ffff */
-    --primary-alt: 190 100% 40%;
-    --accent: 45 100% 50%;
-    /* #ffd700 */
-    --bg-dark: 230 25% 7%;
-    --bg-card: 230 25% 12%;
-    --text-main: 0 0% 100%;
-    --text-muted: 0 0% 70%;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Spacing & Sizes */
-    --container-max: 1280px;
+:root {
+    /* Color Palette - Premium Maya Theme */
+    --primary: 182 100% 50%;   /* #00f7ff Cyan/Teal */
+    --primary-glow: 182 100% 50% / 0.4;
+    --accent: 42 100% 55%;     /* #ffb800 Royal Gold */
+    --accent-glow: 42 100% 55% / 0.4;
+    --danger: 0 84% 60%;       /* #ef4444 Crimson */
+    
+    /* Backgrounds */
+    --bg-black: 220 20% 4%;    /* Almost black #05070a */
+    --bg-dark: 220 20% 7%;     /* Deepest navy */
+    --bg-card: 220 25% 10%;
+    
+    /* Text */
+    --text-main: 0 0% 100%;
+    --text-muted: 220 10% 60%;
+    
+    /* Effects */
+    --glass: rgba(10, 15, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --gold-gradient: linear-gradient(135deg, #ffb800 0%, #ff8a00 100%);
+    --cyan-gradient: linear-gradient(135deg, #00f7ff 0%, #00a3ff 100%);
+
+    /* Spacing & Transition */
+    --container-max: 1440px;
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -26,12 +36,23 @@
 }
 
 body {
-    background-color: hsl(var(--bg-dark));
+    background-color: hsl(var(--bg-black));
     color: hsl(var(--text-main));
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+.font-heading {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1em;
 }
 
 /* Scrollbar Customization */
@@ -52,20 +73,26 @@ body {
     background: hsl(var(--primary) / 0.5);
 }
 
-/* Layout Utilities */
-.container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
 /* Glassmorphism Classes */
 .glass {
     background: var(--glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.text-gradient-gold {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+    background: var(--cyan-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Animations */
@@ -98,15 +125,29 @@ body {
 }
 
 /* Typo Scale */
-h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+h1, .h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 900;
-    letter-spacing: -0.05em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
 }
 
-h2 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+h2, .h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h3, .h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    border-left: 3px solid hsl(var(--accent));
+    padding-left: 1rem;
+    margin: 1.5rem 0;
 }
 
 /* Buttons */
