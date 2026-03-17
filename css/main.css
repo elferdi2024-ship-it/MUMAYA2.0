@@ -379,11 +379,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: transparent;
   border: 1px solid var(--b-iron);
   font-family: var(--ff-ui);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--bone);
@@ -399,11 +399,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: var(--stone3);
   border: 1px solid var(--b-gold);
   font-family: var(--ff-ui);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--white-warm);
@@ -437,7 +437,7 @@ nav#nav.solid {
   justify-content: space-between;
   max-width: var(--wrap-wide);
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 18px 24px;
 }
 
 .nav-logo {
@@ -461,10 +461,11 @@ nav#nav.solid {
 
 .nav-links a {
   font-family: var(--ff-ui);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--bone);
   transition: color 0.2s var(--transition);
   position: relative;
+  font-weight: 500;
 }
 
 .nav-links a:hover,
@@ -501,7 +502,7 @@ nav#nav.solid {
 
 .nav-acts {
   display: flex;
-  gap: 10px;
+  gap: 14px;
 }
 
 .nav-tog {
