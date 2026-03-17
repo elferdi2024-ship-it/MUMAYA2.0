@@ -44,6 +44,20 @@
   padding-bottom: 150px;
 }
 
+/* Wallpeaper de fondo - Profundidad sutil */
+.hero-wallpeaper {
+  position: absolute;
+  inset: 0;
+  background-image: url('image/wallpeaper1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  filter: brightness(0.4) saturate(0.6) blur(1px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* Efecto de resplandor general del hero */
 .hero-index::before {
   content: '';
@@ -53,24 +67,53 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(216, 168, 64, 0.15), transparent 60%);
+  background: radial-gradient(circle, rgba(216, 168, 64, 0.12), transparent 60%);
   filter: blur(100px);
   z-index: 4;
   pointer-events: none;
   animation: hero-ambient-pulse 8s ease-in-out infinite;
 }
 
+/* Segunda capa de resplandor para profundidad */
+.hero-index::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(208, 48, 48, 0.08), transparent 60%);
+  filter: blur(80px);
+  z-index: 4;
+  pointer-events: none;
+  animation: hero-ambient-pulse-2 10s ease-in-out infinite 2s;
+}
+
 @keyframes hero-ambient-pulse {
 
   0%,
   100% {
-    opacity: 0.5;
+    opacity: 0.4;
     transform: translate(-50%, -50%) scale(1);
   }
 
   50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@keyframes hero-ambient-pulse-2 {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
   }
 }
 

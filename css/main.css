@@ -231,12 +231,12 @@ textarea {
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+  transition: opacity 0.5s var(--transition), transform 0.5s var(--transition);
 }
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(15px);
 }
 
 .js .reveal.on {
@@ -244,20 +244,21 @@ textarea {
   transform: translateY(0);
 }
 
+/* Reducir distancia de animación para mejor rendimiento */
 .reveal.d1 {
-  transition-delay: 0.08s;
+  transition-delay: 0.05s;
 }
 
 .reveal.d2 {
-  transition-delay: 0.16s;
+  transition-delay: 0.1s;
 }
 
 .reveal.d3 {
-  transition-delay: 0.24s;
+  transition-delay: 0.15s;
 }
 
 .reveal.d4 {
-  transition-delay: 0.32s;
+  transition-delay: 0.2s;
 }
 
 /* ── GLYPH SEPARATOR ───────────────────────────────────────────────────── */
@@ -380,19 +381,45 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background: transparent;
-  border: 1px solid var(--b-iron);
+  background: linear-gradient(135deg,
+      rgba(26, 24, 20, 0.5) 0%,
+      rgba(40, 36, 28, 0.3) 100%);
+  border: 1px solid rgba(196, 144, 48, 0.2);
   font-family: var(--ff-ui);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--bone);
-  transition: all 0.2s var(--transition);
+  transition: all 0.3s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ghost-xs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(196, 144, 48, 0.1),
+      transparent);
+  transition: left 0.5s var(--transition);
+}
+
+.btn-ghost-xs:hover::before {
+  left: 100%;
 }
 
 .btn-ghost-xs:hover {
-  background: var(--stone2);
-  border-color: var(--b-bone);
+  background: linear-gradient(135deg,
+      rgba(40, 36, 28, 0.8) 0%,
+      rgba(56, 50, 40, 0.5) 100%);
+  border-color: rgba(196, 144, 48, 0.4);
+  box-shadow: 0 0 20px rgba(196, 144, 48, 0.2);
+  transform: translateY(-2px);
 }
 
 .btn-solid-xs {
@@ -400,19 +427,45 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background: var(--stone3);
-  border: 1px solid var(--b-gold);
+  background: linear-gradient(135deg,
+      var(--stone3) 0%,
+      var(--stone4) 50%,
+      var(--stone3) 100%);
+  border: 1px solid rgba(196, 144, 48, 0.3);
   font-family: var(--ff-ui);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--white-warm);
-  transition: all 0.2s var(--transition);
+  transition: all 0.3s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-solid-xs::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(196, 144, 48, 0.15) 0%,
+      rgba(208, 48, 48, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s var(--transition);
+}
+
+.btn-solid-xs:hover::before {
+  opacity: 1;
 }
 
 .btn-solid-xs:hover {
-  background: var(--stone4);
-  border-color: var(--gold3);
+  background: linear-gradient(135deg,
+      var(--stone4) 0%,
+      var(--stone3) 50%,
+      var(--stone4) 100%);
+  border-color: rgba(196, 144, 48, 0.6);
+  box-shadow: 0 0 25px rgba(196, 144, 48, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
 }
 
 /* ── NAVIGATION ────────────────────────────────────────────────────────── */
@@ -422,13 +475,62 @@ nav#nav {
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: background 0.3s var(--transition), backdrop-filter 0.3s var(--transition);
+  transition: all 0.4s var(--transition);
+  background: linear-gradient(180deg,
+      rgba(6, 5, 4, 0.95) 0%,
+      rgba(10, 8, 6, 0.85) 50%,
+      rgba(6, 5, 4, 0.75) 100%);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid rgba(196, 144, 48, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(196, 144, 48, 0.05);
 }
 
 nav#nav.solid {
-  background: rgba(4, 3, 2, 0.95);
-  backdrop-filter: blur(18px) saturate(0.65);
-  border-bottom: 1px solid var(--b-stone);
+  background: linear-gradient(180deg,
+      rgba(3, 2, 2, 0.98) 0%,
+      rgba(10, 8, 6, 0.92) 50%,
+      rgba(3, 2, 2, 0.88) 100%);
+  backdrop-filter: blur(30px) saturate(2);
+  border-bottom: 1px solid rgba(196, 144, 48, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(196, 144, 48, 0.1),
+    0 0 120px rgba(208, 48, 48, 0.05);
+}
+
+/* Línea decorativa animada en el nav */
+nav#nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(196, 144, 48, 0) 20%,
+      rgba(196, 144, 48, 0.4) 50%,
+      rgba(196, 144, 48, 0) 80%,
+      transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--transition);
+}
+
+nav#nav.solid::after {
+  opacity: 1;
+  animation: nav-glow-flow 3s ease-in-out infinite;
+}
+
+@keyframes nav-glow-flow {
+
+  0%,
+  100% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .nav-in {
@@ -446,26 +548,62 @@ nav#nav.solid {
   font-weight: 600;
   color: var(--white-warm);
   letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  text-shadow: 0 0 20px rgba(196, 144, 48, 0.3);
 }
 
 .nav-logo .s21-tag {
-  color: var(--gold3);
+  background: linear-gradient(135deg, var(--gold3), var(--gold5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 14px;
-  margin-left: 4px;
+  font-weight: 700;
+  filter: drop-shadow(0 0 8px rgba(196, 144, 48, 0.5));
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
 }
 
 .nav-links a {
   font-family: var(--ff-ui);
   font-size: var(--text-md);
   color: var(--bone);
-  transition: color 0.2s var(--transition);
+  transition: all 0.3s var(--transition);
   position: relative;
   font-weight: 500;
+  padding: 6px 0;
+}
+
+/* Gradiente de texto animado en hover */
+.nav-links a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: var(--ivory);
+  background: linear-gradient(90deg,
+      var(--gold4) 0%,
+      var(--gold5) 50%,
+      var(--blood4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  overflow: hidden;
+  transition: width 0.4s var(--transition);
+  white-space: nowrap;
+}
+
+.nav-links a:hover::before,
+.nav-links a.current::before {
+  width: 100%;
 }
 
 .nav-links a:hover,
@@ -473,13 +611,30 @@ nav#nav.solid {
   color: var(--ivory);
 }
 
-.nav-links a.current::after {
+/* Línea decorativa debajo de los enlaces */
+.nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 1px;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--gold4),
+      var(--gold5),
+      transparent);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--transition);
+  box-shadow: 0 0 10px rgba(196, 144, 48, 0.6);
+}
+
+.nav-links a:hover::after,
+.nav-links a.current::after {
+  width: 100%;
+}
+
+.nav-links a.current::after {
   background: var(--gold3);
 }
 
@@ -488,15 +643,27 @@ nav#nav.solid {
   animation: nav-speed-pulse 2s ease-in-out infinite;
 }
 
+/* Efecto especial para Speed - gradiente gold→blood */
+.nav-speed::before {
+  background: linear-gradient(90deg,
+      var(--gold4) 0%,
+      var(--gold5) 30%,
+      var(--blood4) 70%,
+      var(--blood5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 @keyframes nav-speed-pulse {
 
   0%,
   100% {
-    text-shadow: 0 0 0 rgba(196, 144, 48, 0);
+    text-shadow: 0 0 8px rgba(196, 144, 48, 0.3), 0 0 15px rgba(196, 144, 48, 0.15);
   }
 
   50% {
-    text-shadow: 0 0 8px rgba(196, 144, 48, 0.4);
+    text-shadow: 0 0 15px rgba(196, 144, 48, 0.6), 0 0 30px rgba(196, 144, 48, 0.3), 0 0 45px rgba(208, 48, 48, 0.2);
   }
 }
 

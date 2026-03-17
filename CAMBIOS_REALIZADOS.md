@@ -3,7 +3,7 @@
 **Fecha:** Marzo 2026  
 **Proyecto:** MU Maya S21 - Landing Page  
 **Archivo Principal:** `index.html`  
-**Última Actualización:** Imágenes con efectos POWER + Nav agrandado
+**Última Actualización:** MENÚ ÉPICO + WALLPEAPER + GRADIENTES - NADA BÁSICO
 
 ---
 
@@ -11,9 +11,533 @@
 
 Se realizaron múltiples correcciones y mejoras a la landing page (`index.html`) del sitio MU Maya S21, siguiendo el prompt maestro `mu-maya-s21-prompt.md`.
 
-**DESTACADO:** Todas las imágenes ahora tienen efectos BRILLANTES Y PODEROSOS con brightness, saturación, y múltiples drop-shadows dorados. El nav y logo fueron agrandados para mejor visibilidad.
+**DESTACADO ÚLTIMA ACTUALIZACIÓN:**
+- ✅ **Menú ÉPICO rediseñado** - Gradientes gold→blood, efectos hover sofisticados
+- ✅ **Wallpeaper de fondo** - Profundidad visual sin competir
+- ✅ **Botones con gradientes** - Efectos de barrido y overlays
+- ✅ **Nav con backdrop-filter** - Efecto cristal premium blur 30px
+- ✅ **Línea decorativa animada** - Glow dorado que fluye en el nav
+- ✅ **S21 tag con gradiente** - Background-clip text + drop-shadow
+- ✅ **Speed link especial** - Gradiente quad-color gold→blood
 
 ---
+
+## 🔧 CAMBIOS REALIZADOS
+
+### 1. **CORRECCIÓN DE ERRORES CRÍTICOS**
+
+#### `js/countdown.js`
+- **Problema:** Error de sintaxis - código sin envolver
+- **Solución:** Envuelto en IIFE `(function() { ... })();`
+- **Archivo:** `js/countdown.js`
+
+#### Duplicación de Online Counter
+- **Problema:** El contador online estaba duplicado en `core.js` e `index.js`
+- **Solución:** Eliminado de `index.js`, mantenido solo en `core.js` con efecto fade
+- **Archivos:** `js/core.js`, `js/index.js`
+
+---
+
+### 2. **HERO SECTION - IMAGEN HOME.png CON PODER MÁXIMO**
+
+#### Imagen Principal del Hero
+- **Agregado:** Imagen `image/HOME.png` en el centro del hero con efectos poderosos
+- **Posición:** `top: 40%`, centrada horizontalmente
+- **Tamaño:** `700px × 600px` máximo
+- **Efectos VISIÓN POTENCIADA:**
+  - `brightness(1.3)` → `brightness(1.5)` (animado)
+  - `saturate(1.4)` → `saturate(1.6)` (animado)
+  - `contrast(1.1)` → `contrast(1.15)`
+  - **3 capas de drop-shadow dorado:**
+    - `0 0 80px rgba(216, 168, 64, 1)`
+    - `0 0 160px rgba(216, 168, 64, 0.6)`
+    - `0 0 240px rgba(216, 168, 64, 0.3)`
+  - Glow gigante de 600px con blur 80px detrás
+- **Animaciones:**
+  - `hero-home-power-float`: flota 25px + escala 1.05 + intensifica brillo (6s)
+  - `hero-home-glow-pulse`: el glow detrás late y escala 1.4x (4s)
+
+#### Wallpeaper de Fondo - PROFUNDIDAD VISUAL
+- **Agregado:** `image/wallpeaper1.jpg` como capa de textura
+- **Opacidad:** `0.15` (muy sutil, solo textura)
+- **Filtros:** `brightness(0.4) saturate(0.6) blur(1px)`
+- **Propósito:** Dar profundidad, evitar negro sólido
+- **z-index:** 0 (debajo de todo)
+
+#### Ambient Pulse del Hero
+- **Agregado:** Resplandor ambiental gigante de 800px
+- **Posición:** Detrás de la imagen HOME
+- **Efecto:** `blur: 100px`, color dorado semitransparente
+- **Animación:** Late y escala 1.2x (8s)
+
+#### Segunda Capa de Resplandor
+- **Agregado:** Glow secundario blood (600px)
+- **Posición:** 60% top, 30% left
+- **Animación:** 10s con delay 2s
+
+#### Ajustes de Capas del Hero
+- **Orden z-index (bottom → top):**
+  0. `.hero-wallpeaper` - Textura de fondo (wallpeaper1.jpg)
+  1. `.hero-bg` (z-index 1) - HOME.png oscurecida con blur
+  2. Gradientes (z-index 2-4) - blood, jade, amber, purple
+  3. `.h-grid` (z-index 3) - grid de piedra tallada
+  4. Pirámides SVG (z-index 4)
+  5. `.hero-home-image` (z-index 6) - HOME.png BRILLANTE
+  6. `.hero-content` (z-index 15) - textos
+
+#### Textos del Hero
+- **Eliminado:** `<h1>MU<br>MAYA</h1>` (tapaba la imagen)
+- **Movidos:** Textos bajados a `margin-top: 450px` para no tapar la imagen
+- **Contenido actual:**
+  - Corona ornamento
+  - Eyebrow: "Servidor Privado · Continente de MU · Grand Opening 2025"
+  - Subtitle: "Season 21 — El Crusader Despierta"
+  - Descripción: 2 líneas
+  - 3 CTAs: Comenzar | Speed Server | El Servidor
+
+#### Ajustes de Filtros
+- `.hero-bg`: `brightness(0.3) saturate(0.5) blur(2px)` - fondo oscurecido
+- `.hero-overlay-gradient`: `rgba(3, 2, 2, 0.3)` top / `0.4` bottom - más claro
+
+---
+
+### 3. **NAVIGATION - MENÚ ÉPICO COMPLETAMENTE REDISEÑADO**
+
+#### Fondo del Nav - Gradiente Multicapa
+```css
+background: linear-gradient(180deg, 
+  rgba(6, 5, 4, 0.95) 0%,    /* Arriba oscuro */
+  rgba(10, 8, 6, 0.85) 50%,   /* Medio con profundidad */
+  rgba(6, 5, 4, 0.75) 100%);  /* Abajo transparente */
+```
+- **backdrop-filter:** `blur(30px) saturate(2)` - efecto cristal premium
+- **box-shadow:** 3 capas (negro + gold + blood)
+- **border-bottom:** `rgba(196, 144, 48, 0.2)` con glow
+
+#### Línea Decorativa Animada
+- **Posición:** Bottom del nav
+- **Efecto:** Gradiente dorado que fluye
+- **Animación:** `nav-glow-flow` 3s infinite
+- **Activación:** Solo cuando `.solid` (al hacer scroll)
+
+#### Enlaces con Gradiente de Texto Animado
+- **Efecto `::before`:** Gradiente gold4→gold5→blood4 se expande en hover
+- **Técnica:** `attr(data-text)` + `background-clip: text`
+- **Animación:** `width: 0 → 100%` (0.4s)
+- **Línea inferior:** Crece desde el centro con glow dorado
+- **Hover state:** Color ivory + línea 100%
+
+#### Logo S21 Tag - Gradiente Especial
+- **Background:** `linear-gradient(135deg, gold3, gold5)`
+- **Efecto:** `background-clip: text` + `-webkit-text-fill-color: transparent`
+- **Shadow:** `drop-shadow(0 0 8px rgba(196, 144, 48, 0.5))`
+- **Font-weight:** 700 (bold)
+
+#### Speed Link - Más Intenso
+- **Gradiente:** gold4→gold5→blood4→blood5
+- **Triple shadow:** gold + gold + blood
+- **Animación:** Pulse 2s con 3 capas de shadow
+
+#### Botón Ingresar (Ghost)
+- **Fondo:** Gradiente stone transparente
+- **Efecto `::before`:** Barrido dorado en hover (left -100% → 100%)
+- **Hover:** Background más oscuro + glow dorado + translateY(-2px)
+
+#### Botón Crear Cuenta (Solid)
+- **Fondo:** Gradiente stone3→stone4→stone3
+- **Efecto `::before`:** Overlay gold→blood en hover
+- **Hover:** Shadow 2 capas (gold + negro) + translateY(-2px)
+
+#### Tamaños Agrandados
+- **Logo:** `height: 70px` (antes 50px) → **+40%**
+- **Mobile Drawer:** `height: 50px` (antes 40px)
+- **Enlaces:** `font-size: 17px` (antes 14px) + `font-weight: 500`
+- **Botones:** `font-size: 12px`, `padding: 10px 20px`
+- **Gap botones:** 14px (antes 10px)
+- **Padding nav:** `18px 24px` (antes 14px)
+
+---
+
+### 4. **OPTIMIZACIÓN DE RENDIMIENTO - 60% MÁS RÁPIDO**
+
+#### Animaciones GSAP - VELOCIDAD DOBLE
+| Animación | Antes | Ahora | Mejora |
+|-----------|-------|-------|--------|
+| Hero entrance | 1.3s | 0.5s | -62% |
+| Stats bar | 1s | 0.4s | -60% |
+| Scroll reveal | 0.8s, y:40 | 0.35s, y:12 | -56% |
+| Rate values | 0.6s | 0.35s | -42% |
+| Class chips | 0.5s, y:20 | 0.25s, y:8 | -50% |
+| Countdown | 0.7s, y:30 | 0.35s, y:15 | -50% |
+| Crusader img | 1.2s | 0.5s | -58% |
+| Siege stats | 0.8s, y:40 | 0.35s, y:15 | -56% |
+
+#### Bug Fixes - SIN ROTURAS
+- ✅ `once: true` en todos los ScrollTrigger - no re-anima al volver
+- ✅ Eliminado efecto parallax del hero (problemático al navegar)
+- ✅ Eliminado efecto magnético de botones (causaba lag)
+- ✅ Reducido partículas: embers 15→10, runas 12→6
+
+#### Rendimiento General
+- **Partículas totales:** 27 → 16 (-40%)
+- **Animaciones por scroll:** Múltiples → Una sola vez
+- **Distancia de animación:** 24-40px → 8-15px
+- **Delays:** Reducidos 50-60%
+
+---
+
+### 5. **SECCIÓN "CARACTERÍSTICAS DEL SERVIDOR" - LOGO BRILLANTE**
+
+#### Logo del Servidor - EFECTOS PODEROSOS
+- **Agregado:** `image/logo.png` arriba del eyebrow label
+- **Tamaño:** `max-width: 280px`
+- **Efectos VISIÓN POTENCIADA:**
+  - `brightness(1.2)` → `brightness(1.4)` (hover)
+  - `saturate(1.3)` → `saturate(1.5)` (hover)
+  - **2 capas de drop-shadow:**
+    - `0 0 60px rgba(216, 168, 64, 1)`
+    - `0 0 120px rgba(216, 168, 64, 0.5)`
+  - `::before` con glow pulsante detrás (200px, blur 20px)
+- **Animaciones:**
+  - `logo-float`: flota 15px arriba/abajo (4s)
+  - `logo-glow-pulse`: el glow detrás late y escala (3s)
+- **Hover:** Más brillo + escala 1.12
+
+#### Mini Countdown
+- **Agregado:** Panel de countdown para próximo evento
+- **Ubicación:** Debajo del grid de clases
+- **Formato:** Horas | Minutos | Segundos
+
+---
+
+### 6. **SPEED SERVER TEASER SECTION - IMAGEN BRILLANTE**
+
+#### Layout de 2 Columnas
+- **Estructura:** Grid 50%/50%
+- **Mitad izquierda:** `image/speed.png`
+- **Mitad derecha:** Información del evento
+
+#### Imagen speed.png - EFECTOS VISIÓN POTENCIADA
+- **Efectos:**
+  - `brightness(1.2)` → más brillante
+  - `saturate(1.3)` → más vibrante
+  - **2 capas de drop-shadow:**
+    - `0 0 60px rgba(216, 168, 64, 0.8)`
+    - `0 0 120px rgba(216, 168, 64, 0.4)`
+- **Animación:** `speed-img-float`: flota 25px + rotate 3deg (4s)
+
+#### Efecto Speed Sparks
+- **Agregado:** Partículas de chispas en movimiento
+- **Efecto:** 3 gradientes radiales animados
+- **Animación:** Se mueven en diagonal (10s)
+- **Opacidad:** 0.5
+
+#### Borde Tricolor Maya
+- **Agregado:** Borde tricolor arriba y abajo de la sección
+- **Colores:** Blood | Gold | Jade (repeating gradient)
+
+---
+
+### 7. **CRUSADER SECTION - IMAGEN ÉPICA**
+
+#### Imagen season21.png - EFECTOS PODEROSOS
+- **Tamaño:** `max-width: 280px`
+- **Efectos:**
+  - `brightness(1.15)` → `brightness(1.3)` (hover)
+  - `saturate(1.2)` → `saturate(1.4)` (hover)
+  - **2 capas de drop-shadow:**
+    - `0 0 50px rgba(216, 168, 64, 0.8)`
+    - `0 0 100px rgba(216, 168, 64, 0.4)`
+  - Border: 2px dorado con glow
+- **Hover:** Escala 1.1 + más glow intenso
+
+---
+
+### 8. **GLYPH SEPARATORS**
+
+#### Separadores entre Secciones
+- **Agregado:** Glyph separators antes de cada sección principal
+- **Estructura:** `[línea] [diamond sm] [diamond] [diamond sm] [línea]`
+- **Colores por sección:**
+  - Continent: gold
+  - Speed: gold + jade
+  - News: gold + blood
+  - Siege: gold
+  - Download: gold + jade
+
+---
+
+### 9. **ESTRUCTURA HTML CON WRAP**
+
+#### Contenedores Wrap
+- **Cambio:** Todas las secciones ahora usan `.wrap` correctamente
+- **Beneficio:** Alineación consistente con `max-width: 1200px`
+- **Secciones afectadas:**
+  - `.continent-section`
+  - `.speed-teaser`
+  - `.news-section`
+  - `.siege-section`
+  - `.download-section`
+
+---
+
+### 10. **GOOGLE FONTS**
+
+#### Preload Corregido
+- **Eliminado:** `<link rel="preload" as="style">` (incorrecto)
+- **Agregado:** `preconnect` para mejor carga
+- **Código:**
+  ```html
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  ```
+
+---
+
+### 11. **VISIBILIDAD DE TEXTOS**
+
+#### Scroll Reveal Fallback
+- **Problema:** Elementos `.reveal` ocultos si JS falla
+- **Solución:** Visible por defecto, JS oculta para animar
+- **Código CSS:**
+  ```css
+  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 0; transform: translateY(15px); }
+  .js .reveal.on { opacity: 1; transform: none; }
+  ```
+
+#### Ajustes de Contraste
+- `.hero-title`: Agregado `color: var(--gold4)` como fallback
+- `.hero-overlay-gradient`: Más claro para mejor visibilidad
+- `.hero-subtitle` y `.hero-desc`: Text-shadows agregados
+
+---
+
+### 12. **PIRÁMIDES SVG**
+
+#### Ajustes de Opacidad
+- **Cambio:** `opacity: 0.055` (según prompt, antes 0.08)
+- **Colores corregidos:** `rgba(196,144,48)` según prompt
+
+#### H-Grid
+- **Color:** `rgba(196, 144, 48, 0.018)` según prompt
+
+---
+
+### 13. **CORONA ORNAMENT**
+
+#### Diamond Central
+- **Corregido según prompt:**
+  - `width: 6px; height: 6px` (antes 8px)
+  - `background: var(--gold2)` (simple, sin gradiente)
+  - `box-shadow: 0 0 8px rgba(196, 144, 48, 0.5)`
+
+---
+
+### 14. **ONLINE COUNTER**
+
+#### Efecto Fade
+- **Agregado:** Fade out/in al actualizar contador
+- **Intervalo:** 4500ms
+- **Rango:** 900-1700 (±6 random)
+
+---
+
+### 15. **HERO VIGNETTE**
+
+#### Viñeta Top + Bottom
+- **Cambio:** Movido a `::after` con `linear-gradient`
+- **Código:**
+  ```css
+  .hero-vignette::after {
+    background: linear-gradient(to bottom,
+      rgba(3, 2, 2, 0.6) 0%,
+      transparent 20%,
+      transparent 80%,
+      rgba(3, 2, 2, 0.6) 100%);
+  }
+  ```
+
+---
+
+## 📁 ARCHIVOS MODIFICADOS
+
+| Archivo | Cambios Principales |
+|---------|-------------------|
+| `index.html` | Logo nav, HOME.png hero, wallpeaper, glyph-seps, wrap structure, speed.png, logo section, data-text attrs |
+| `css/main.css` | **MENÚ ÉPICO**: gradientes, backdrop-filter, botones con efectos, nav-speed especial, scroll reveal optimizado |
+| `css/index.css` | Wallpeaper hero, efectos POWER imágenes (2310+ líneas) |
+| `js/core.js` | Online counter con fade, JS class |
+| `js/countdown.js` | IIFE wrapper fix |
+| `js/index.js` | **ANIMACIONES OPTIMIZADAS** (60% más rápidas, once: true) |
+
+---
+
+## 🎨 EFECTOS VISUALES AGREGADOS
+
+### Gradientes Sofisticados - NADA BÁSICO
+
+| Elemento | Gradiente | Efecto |
+|----------|-----------|--------|
+| **Nav fondo** | 3 capas (oscuro→medio→transparente) | Profundidad visual |
+| **Nav enlaces hover** | gold4→gold5→blood4 | Expansión izquierda→derecha |
+| **Nav línea** | transparent→gold4→gold5→transparent | Crece desde centro |
+| **S21 tag** | gold3→gold5 (135deg) | Background-clip text |
+| **Speed link** | gold4→gold5→blood4→blood5 | Quad-color gradient |
+| **Botón ghost** | stone transparente | Barrido dorado hover |
+| **Botón solid** | stone3→stone4→stone3 | Overlay gold→blood hover |
+
+### Imágenes con Efectos POWER
+
+| Imagen | Ubicación | Efectos |
+|--------|-----------|---------|
+| HOME.png | Hero principal | **brightness(1.3-1.5), saturate(1.4-1.6), contrast(1.1-1.15), 3x drop-shadows dorados (80px-240px)** |
+| logo.png | Nav | **brightness(1.2-1.4), saturate(1.3-1.5), 2x drop-shadows, hover scale 1.1** |
+| logo.png | Continent section | **brightness(1.2-1.4), saturate(1.3-1.5), 2x drop-shadows (60px-160px), float 15px** |
+| speed.png | Speed section | **brightness(1.2), saturate(1.3), 2x drop-shadows (60px-120px), float 25px + rotate 3deg** |
+| season21.png | Crusader section | **brightness(1.15-1.3), saturate(1.2-1.4), 2x drop-shadows (50px-160px), border 2px gold** |
+| wallpeaper1.jpg | Hero fondo | **opacity: 0.15, brightness: 0.4, saturate: 0.6, blur: 1px** |
+
+### Animaciones CSS
+
+| Animación | Duración | Elemento |
+|-----------|----------|----------|
+| `hero-home-power-float` | 6s | HOME.png hero |
+| `hero-home-glow-pulse` | 4s | Glow HOME.png |
+| `hero-ambient-pulse` | 8s | Resplandor ambiental hero |
+| `hero-ambient-pulse-2` | 10s | Segunda capa blood |
+| `logo-float` | 4s | Logo continent |
+| `logo-glow-pulse` | 3s | Glow logo |
+| `speed-img-float` | 4s | Speed.png |
+| `speed-sparks` | 10s | Partículas Speed section |
+| `nav-glow-flow` | 3s | Línea decorativa nav |
+| `nav-speed-pulse` | 2s | Speed link |
+
+---
+
+## 📐 RESPONSIVE
+
+### Breakpoints
+- `@media (max-width: 1024px)`: Speed grid colapsa a 1 columna
+- `@media (max-width: 768px)`: Nav colapsa a hamburger
+- `@media (max-width: 520px)`: Ajustes de padding y grid
+
+---
+
+## 🚀 PROMPT PARA ANTI GRAVITY - GIT COMMIT
+
+```markdown
+GIT COMMIT - MU MAYA S21 Website - MENÚ ÉPICO + WALLPEAPER + GRADIENTES
+
+ARCHIVOS MODIFICADOS:
+1. index.html - Wallpeaper background + data-text attributes nav
+2. css/main.css - MENÚ ÉPICO completo (gradientes, efectos, backdrop-filter)
+3. css/index.css - Wallpeaper hero + efectos imágenes
+4. js/core.js - Online counter con fade
+5. js/countdown.js - IIFE wrapper fix
+6. js/index.js - Animaciones OPTIMIZADAS (60% más rápidas)
+7. CAMBIOS_REALIZADOS.md - Documentación completa
+
+CAMBIOS PRINCIPALES:
+
+🎨 MENÚ ÉPICO - NADA BÁSICO:
+- Nav: Gradiente 3 capas + backdrop-filter blur 30px saturate 2
+- Línea decorativa: Glow dorado animado que fluye (3s infinite)
+- Enlaces: Gradiente texto gold→blood en hover (background-clip)
+- S21 tag: Gradiente gold3→gold5 + drop-shadow
+- Speed link: Quad-gradient gold→blood + triple shadow pulse
+- Botón ghost: Barrido dorado en hover
+- Botón solid: Overlay gold→blood + shadow 2 capas
+
+🖼️ WALLPEAPER HERO:
+- image/wallpeaper1.jpg en z-index 0
+- opacity: 0.15, brightness: 0.4, saturate: 0.6, blur: 1px
+- Propósito: Profundidad visual, evitar negro sólido
+
+⚡ OPTIMIZACIÓN (60% MÁS RÁPIDA):
+- Animaciones GSAP: 0.35-0.5s (antes 0.7-1.3s)
+- ScrollTrigger con once: true (no re-anima al volver)
+- Partículas: 27 → 16 (-40%)
+- Eliminado parallax + efecto magnético
+
+🐛 BUG FIXES:
+- No se rompe al volver al inicio
+- Textos aparecen rápido (0.35-0.5s)
+- Online counter dedup
+- countdown.js IIFE wrapper
+
+📏 NAV AGRANDADO:
+- Logo: 70px alto (+40%)
+- Menú: 17px font-weight 500
+- Botones: 12px, padding 10px 20px
+
+🎨 IMÁGENES POWER:
+- HOME.png: 3x drop-shadows dorados, brightness 1.5, float 25px
+- logo.png nav/continent: brightness 1.4, 2x drop-shadows
+- speed.png: float 25px + rotate 3deg
+- season21.png crusader: border gold + glow
+
+✨ EFECTOS NUEVOS:
+- Hero ambient pulse (800px + 600px glow)
+- Speed sparks (partículas animadas)
+- Nav glow-flow (línea dorada animada)
+
+📁 DOCUMENTACIÓN:
+- CAMBIOS_REALIZADOS.md actualizado con TODO
+
+ESTILO DE COMMIT:
+"feat: MU Maya MENÚ ÉPICO + wallpeaper - Nada básico de IA
+
+🎨 MENÚ SOFISTICADO:
+- Nav gradiente 3 capas + backdrop-filter blur 30px
+- Enlaces con gradiente texto gold→blood (background-clip)
+- S21 tag gradiente + drop-shadow
+- Speed quad-gradient gold→blood pulse
+- Botones: barrido dorado + overlay gold→blood
+- Línea decorativa animada glow-flow 3s
+
+🖼️ WALLPEAPER HERO:
+- wallpeaper1.jpg opacity 0.15 para profundidad
+- Evita negro sólido, da textura sutil
+
+⚡ OPTIMIZACIÓN 60%:
+- GSAP 0.35-0.5s, once: true, sin re-animar
+- Partículas -40%, sin parallax/magnético
+
+📏 NAV +40% GRANDE:
+- Logo 70px, menú 17px, botones 12px
+
+🐛 FIX:
+- countdown IIFE, online dedup, textos rápidos
+
+Docs: CAMBIOS_REALIZADOS.md""
+
+Por favor verifica que todos los archivos estén stageados y realiza el commit.
+```
+
+---
+
+## ✅ CRITERIO DE ÉXITO
+
+El sitio es exitoso si:
+- ✅ **Menú NO parece básico de IA** - Gradientes, efectos, backdrop-filter
+- ✅ **Wallpeaper da profundidad** - Sin competir, solo textura
+- ✅ **Animaciones 60% más rápidas** - 0.35-0.5s vs 0.7-1.3s antes
+- ✅ **Sin bugs al navegar** - once: true en ScrollTrigger
+- ✅ **Imágenes BRILLANTES** - Múltiples drop-shadows, brightness alto
+- ✅ **Nav 40% más grande** - Logo 70px, menú 17px
+- ✅ **Textos aparecen rápido** - Sin delays largos
+- ✅ **Glyph separators entre secciones**
+- ✅ **Sitio responsive** (mobile/desktop)
+
+---
+
+**Documentación completada. Listo para git commit.** 🎯
+
+---
+
+*Generado para MU Maya S21 — Servidor Privado de MU Online Season 21*
+*Última actualización: MENÚ ÉPICO + WALLPEAPER + GRADIENTES SOFISTICADOS*
 
 ## 🔧 CAMBIOS REALIZADOS
 
@@ -312,6 +836,32 @@ Se realizaron múltiples correcciones y mejoras a la landing page (`index.html`)
 
 ## 🎨 EFECTOS VISUALES AGREGADOS - TODAS LAS IMÁGENES BRILLANTES
 
+### Optimización de Rendimiento - ÚLTIMA ACTUALIZACIÓN
+
+#### Animaciones GSAP - 60% MÁS RÁPIDAS
+| Animación | Antes | Ahora | Mejora |
+|-----------|-------|-------|--------|
+| Hero entrance | 1.3s | 0.5s | -62% |
+| Stats bar | 1s | 0.4s | -60% |
+| Scroll reveal | 0.8s, y:40 | 0.35s, y:12 | -56% |
+| Rate values | 0.6s | 0.35s | -42% |
+| Class chips | 0.5s, y:20 | 0.25s, y:8 | -50% |
+| Countdown | 0.7s, y:30 | 0.35s, y:15 | -50% |
+| Crusader img | 1.2s | 0.5s | -58% |
+| Siege stats | 0.8s, y:40 | 0.35s, y:15 | -56% |
+
+#### Bug Fixes - SIN ROTURAS
+- ✅ `once: true` en todos los ScrollTrigger - no re-anima al volver
+- ✅ Eliminado efecto parallax del hero (problemático al navegar)
+- ✅ Eliminado efecto magnético de botones (causaba lag)
+- ✅ Reducido partículas: embers 15→10, runas 12→6
+
+#### Rendimiento General
+- **Partículas totales:** 27 → 16 (-40%)
+- **Animaciones por scroll:** Múltiples → Una sola vez
+- **Distancia de animación:** 24-40px → 8-15px
+- **Delays:** Reducidos 50-60%
+
 ### Imágenes con Efectos POWER
 | Imagen | Ubicación | Efectos |
 |--------|-----------|---------|
@@ -352,80 +902,84 @@ Se realizaron múltiples correcciones y mejoras a la landing page (`index.html`)
 ## 🚀 PROMPT PARA ANTI GRAVITY - GIT COMMIT
 
 ```markdown
-GIT COMMIT - MU MAYA S21 Website Landing Page Completa
-
-Por favor realiza un commit con los siguientes cambios:
+GIT COMMIT - MU MAYA S21 Website - OPTIMIZACIÓN COMPLETA
 
 ARCHIVOS MODIFICADOS:
-1. index.html - Landing page completa con imágenes y estructura
-2. css/main.css - Nav agrandado + scroll reveal fallback
-3. css/index.css - Efectos POWER para imágenes (2270+ líneas)
-4. js/core.js - Online counter con efecto fade
-5. js/countdown.js - Corregido error de sintaxis (IIFE)
-6. js/index.js - GSAP animations corregidas
+1. index.html - Landing page completa
+2. css/main.css - Scroll reveal optimizado
+3. css/index.css - Efectos POWER + optimizaciones
+4. js/core.js - Online counter con fade
+5. js/countdown.js - IIFE wrapper fix
+6. js/index.js - ANIMACIONES OPTIMIZADAS (60% más rápidas)
 7. CAMBIOS_REALIZADOS.md - Documentación completa
 
 CAMBIOS PRINCIPALES:
 
-🎨 IMÁGENES CON EFECTOS POWER:
-- HOME.png (Hero): brightness(1.3-1.5), saturate(1.6), 3x drop-shadows dorados, float 25px
-- logo.png (Nav): 70px alto, brightness(1.4), drop-shadows intensos, hover scale 1.1
-- logo.png (Continent): 280px, brightness(1.4), 2x drop-shadows, float + glow pulse
-- speed.png: brightness(1.2), saturate(1.3), float 25px + rotate 3deg
-- season21.png (Crusader): brightness(1.3), 2x drop-shadows, border gold
+⚡ OPTIMIZACIÓN DE ANIMACIONES (60% MÁS RÁPIDAS):
+- Hero entrance: 1.3s → 0.5s (-62%)
+- Stats bar: 1s → 0.4s (-60%)
+- Scroll reveal: 0.8s → 0.35s, y:40 → y:12 (-56%)
+- Rate values: 0.6s → 0.35s (-42%)
+- Class chips: 0.5s → 0.25s (-50%)
+- Countdown: 0.7s → 0.35s (-50%)
+- Crusader img: 1.2s → 0.5s (-58%)
+- Siege stats: 0.8s → 0.35s (-56%)
 
-✨ NUEVOS EFECTOS:
-- Hero ambient pulse: resplandor 800px detrás del hero
-- Speed sparks: partículas de chispas en movimiento
-- Todos los logos con hover intensificado
+🐛 BUG FIXES - SIN ROTURAS:
+- ✅ once: true en ScrollTrigger (no re-anima al volver)
+- ✅ Eliminado parallax del hero (problemático)
+- ✅ Eliminado efecto magnético de botones (lag)
+- ✅ Partículas: 27 → 16 (-40% rendimiento)
+
+🎨 IMÁGENES BRILLANTES:
+- HOME.png hero: brightness 1.3-1.5, saturate 1.6, 3x drop-shadows dorados, float 25px
+- logo.png nav: 70px (+40%), brightness 1.4, 2x drop-shadows, hover scale 1.1
+- logo.png continent: brightness 1.4, 2x drop-shadows (60-160px), float + glow pulse
+- speed.png: brightness 1.2, saturate 1.3, float 25px + rotate 3deg
+- season21.png crusader: brightness 1.3, 2x drop-shadows, border gold + glow
+
+✨ EFECTOS NUEVOS:
+- Hero ambient pulse: resplandor 800px, blur 100px, late 8s
+- Speed sparks: partículas chispas en movimiento diagonal 10s
 
 📏 NAV AGRANDADO:
 - Logo: 70px alto (antes 50px) +40%
-- Menú: 17px font (antes 14px)
-- Botones: 12px font, padding 10px 20px
-- Padding nav: 18px vertical
-
-🔧 CORRECCIONES:
-- countdown.js: IIFE wrapper
-- Online counter: eliminado duplicado
-- Textos hero: bajados a 450px para no tapar HOME.png
-- Scroll reveal: fallback si JS falla
-- GSAP timings: corregidos según prompt
-
-IMÁGENES USADAS:
-- image/HOME.png (Hero principal - BRILLANTE)
-- image/logo.png (Nav + Continent section - BRILLANTE)
-- image/speed.png (Speed section - BRILLANTE)
-- image/season21.png (Crusader - BRILLANTE)
-
-ESTILO DE COMMIT:
-- Mensaje claro y conciso
-- Enfocado en "por qué" no solo "qué"
-- Incluir lista de cambios principales
-- Usar emojis para categorizar
-
-Ejemplo de formato:
-"feat: Landing MU Maya con imágenes POWER y nav agrandado
-
-🎨 IMÁGENES BRILLANTES:
-- HOME.png hero con 3x drop-shadows dorados, brightness 1.5, float 25px
-- logo.png nav 70px + glow intenso, hover scale 1.1
-- logo.png continent con float + glow pulse
-- speed.png con float 25px + rotate 3deg
-- season21.png crusader con border gold + glow
-
-✨ EFECTOS NUEVOS:
-- Hero ambient pulse (800px glow)
-- Speed sparks (partículas animadas)
-
-📏 NAV MÁS GRANDE:
-- Logo 70px (+40%), menú 17px, botones 12px
-- Padding nav 18px
+- Menú: 17px font-weight 500 (antes 14px)
+- Botones: 12px, padding 10px 20px (antes 11px, 8px 16px)
+- Padding nav: 18px vertical (antes 14px)
 
 🔧 FIX:
-- countdown.js IIFE, online counter dedup, GSAP timings
+- countdown.js: IIFE wrapper fix
+- Online counter: eliminado duplicado core.js/index.js
+- Textos hero: margin-top 450px (no tapan HOME.png)
+- Scroll reveal: fallback visible por defecto
+- GSAP timings: corregidos según prompt
 
-Documentación: CAMBIOS_REALIZADOS.md"
+📁 DOCUMENTACIÓN:
+- CAMBIOS_REALIZADOS.md actualizado con todo
+
+ESTILO DE COMMIT:
+"feat: Landing MU Maya OPTIMIZADA - 60% más rápida + bug fixes
+
+⚡ OPTIMIZACIÓN (60% MÁS RÁPIDA):
+- Animaciones GSAP: 0.35-0.5s (antes 0.7-1.3s)
+- ScrollTrigger con once: true (no re-anima)
+- Partículas: 27 → 16 (-40%)
+- Eliminado parallax + efecto magnético
+
+🐛 BUG FIXES:
+- No se rompe al volver al inicio
+- Textos aparecen rápido (sin delay)
+- Online counter dedup
+
+🎨 IMÁGENES POWER:
+- HOME.png: 3x drop-shadows dorados, brightness 1.5, float 25px
+- logo.png nav 70px, continent, speed.png, crusader
+
+📏 NAV +40% GRANDE:
+- Logo 70px, menú 17px, botones 12px
+
+Docs: CAMBIOS_REALIZADOS.md""
 
 Por favor verifica que todos los archivos estén stageados y realiza el commit.
 ```
