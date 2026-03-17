@@ -1,87 +1,516 @@
-<!-- filepath: index.html -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MU Maya S21 - La Evolución del Poder</title>
-    <meta name="description"
-        content="Únete a MU Maya Season 21. Experiencia premium, estabilidad y competitividad extrema.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MU Maya S21 — Season 21 · El Crusader Despierta</title>
+  <meta name="description"
+    content="Servidor privado de MU Online Season 21. Únete a la comunidad hispana más grande. Castle Siege, rankings, eventos y más.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index-styles.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Estilos compartidos -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+  <!-- Grain overlay -->
+  <div id="grain"></div>
 
-    <nav class="navbar">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="logo">
-                <h2 style="color: white; font-style: italic;">MU<span style="color: hsl(var(--primary));">MAYA</span>
-                </h2>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="speed.html">Speed Server</a></li>
-                <li><a href="mu-maya-s21/rankings.html">Rankings</a></li>
-                <li><a href="mu-maya-s21/noticias.html">Noticias</a></li>
-                <li><a href="mu-maya-s21/descargar.html">Descargar</a></li>
-                <li><a href="mu-maya-s21/cuenta.html" class="btn btn-outline" style="padding: 0.5rem 1.5rem;">Mi
-                        Cuenta</a></li>
-            </ul>
+  <!-- Particles canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-in">
+      <a href="index.html" class="nav-logo">
+        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img">
+        <span class="s21-tag">S21</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="current">Servidor</a></li>
+        <li><a href="speed.html" class="nav-speed">Speed</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="descargar.html">Descargar</a></li>
+      </ul>
+      <div class="nav-acts">
+        <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
+        <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
+      </div>
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="drawer" onclick="toggleDrawer()">
+    <div class="drawer-in" onclick="event.stopPropagation()">
+      <a href="index.html" class="drawer-logo">
+        <img src="image/logo.png" alt="MU Maya S21" class="drawer-logo-img">
+        <span class="s21-tag">S21</span>
+      </a>
+      <ul class="drawer-links">
+        <li><a href="index.html">Servidor</a></li>
+        <li><a href="speed.html">Speed Server</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="descargar.html">Descargar</a></li>
+      </ul>
+      <div class="drawer-acts">
+        <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
+        <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-index">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay-gradient"></div>
+      <div class="hero-gradient-blood"></div>
+      <div class="hero-gradient-jade"></div>
+      <div class="hero-gradient-amber"></div>
+      <div class="hero-gradient-purple"></div>
+      <div class="h-grid"></div>
+
+      <!-- Pirámides SVG -->
+      <svg class="pyramid-left" viewBox="0 0 420 300" preserveAspectRatio="none">
+        <polygon points="210,12 400,270 20,270" fill="rgba(196,144,48,1)" />
+        <polygon points="210,50 360,252 60,252" fill="rgba(4,3,2,1)" />
+        <polygon points="210,80 320,238 100,238" fill="rgba(196,144,48,.7)" />
+        <polygon points="210,105 285,225 135,225" fill="rgba(4,3,2,1)" />
+        <polygon points="210,130 250,212 170,212" fill="rgba(196,144,48,.7)" />
+        <polygon points="210,152 220,198 200,198" fill="rgba(4,3,2,1)" />
+        <rect x="0" y="270" width="420" height="8" fill="rgba(196,144,48,.7)" />
+        <rect x="0" y="280" width="420" height="4" fill="rgba(196,144,48,.35)" />
+      </svg>
+
+      <svg class="pyramid-right" viewBox="0 0 420 300" preserveAspectRatio="none">
+        <polygon points="210,12 400,270 20,270" fill="rgba(216,168,64,1)" />
+        <polygon points="210,50 360,252 60,252" fill="rgba(4,3,2,1)" />
+        <polygon points="210,80 320,238 100,238" fill="rgba(216,168,64,.7)" />
+        <polygon points="210,105 285,225 135,225" fill="rgba(4,3,2,1)" />
+        <polygon points="210,130 250,212 170,212" fill="rgba(216,168,64,.7)" />
+        <polygon points="210,152 220,198 200,198" fill="rgba(4,3,2,1)" />
+        <rect x="0" y="270" width="420" height="8" fill="rgba(216,168,64,.7)" />
+        <rect x="0" y="280" width="420" height="4" fill="rgba(216,168,64,.35)" />
+      </svg>
+
+      <!-- HOME Image - Hero Principal CON PODER (ENCIMA DE TODO) -->
+      <div class="hero-home-image">
+        <img src="image/HOME.png" alt="MU Maya S21" class="hero-home-img">
+        <div class="hero-home-glow"></div>
+      </div>
+
+      <!-- Embers -->
+      <div class="embers-container" id="embers"></div>
+
+      <!-- Runas flotantes -->
+      <div class="runes-container" id="runes"></div>
+
+      <div class="hero-vignette"></div>
+
+      <div class="hero-content">
+        <!-- Corona -->
+        <div class="corona hero-el">
+          <div class="corona-line"></div>
+          <div class="corona-el sm-sq"></div>
+          <div class="corona-el tall"></div>
+          <div class="corona-el"></div>
+          <div class="corona-el tall"></div>
+          <div class="corona-diamond"></div>
+          <div class="corona-el tall"></div>
+          <div class="corona-el"></div>
+          <div class="corona-el tall"></div>
+          <div class="corona-el sm-sq"></div>
+          <div class="corona-line"></div>
         </div>
-    </nav>
 
-    <header class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-        </video>
-        <div class="container">
-            <div class="hero-content animate-fade-in">
-                <span
-                    style="color: hsl(var(--primary)); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em;">Season
-                    21 Evolution</span>
-                <h1 class="hero-title">CONQUISTA TU<br>DESTINO EN MAYA</h1>
-                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem;">
-                    El renacimiento de los guerreros. Un servidor diseñado para la gloria eterna, con estabilidad total
-                    y balance competitivo profesional.
-                </p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="descargar.html" class="btn btn-primary">JUGAR AHORA</a>
-                    <a href="speed.html" class="btn btn-outline">SPEED SERVER</a>
-                </div>
-            </div>
+        <div class="eyebrow hero-el">Servidor Privado · Continente de MU · Grand Opening 2025</div>
+        <div class="hero-subtitle hero-el">Season 21 — El Crusader Despierta</div>
+        <p class="hero-desc hero-el">Un servidor construido desde cero para ofrecer la experiencia definitiva de MU
+          Online Season 21. Economía balanceada, sistemas competitivos y eventos exclusivos para la verdadera comunidad
+          hispana.</p>
+
+        <div class="hero-cta hero-el">
+          <a href="cuenta.html#registro" class="btn-p">Comenzar</a>
+          <a href="speed.html" class="btn-o">Speed Server</a>
+          <a href="#continente" class="btn-ghost-xs">El Servidor</a>
         </div>
-    </header>
+      </div>
 
-    <main class="container">
-        <section class="server-info-grid">
-            <div class="info-card glass animate-on-scroll">
-                <h3 style="color: hsl(var(--primary)); margin-bottom: 1rem;">EXCLUSIVO S21</h3>
-                <p>Nuevos mapas, sets y habilidades balanceadas para la máxima experiencia.</p>
-            </div>
-            <div class="info-card glass animate-on-scroll">
-                <h3 style="color: hsl(var(--primary)); margin-bottom: 1rem;">STABILITY</h3>
-                <p>99.9% Up-time garantizado. Servidores dedicados con protección Anti-DDoS.</p>
-            </div>
-            <div class="info-card glass animate-on-scroll">
-                <h3 style="color: hsl(var(--primary)); margin-bottom: 1rem;">FAIR PLAY</h3>
-                <p>Anti-hack premium y comunidad activa para garantizar la competitividad real.</p>
-            </div>
-        </section>
+      <div class="scroll-cue"></div>
 
-        <!-- Aquí se agregarían más secciones como Noticias Recientes y Rankings en el siguiente paso -->
-    </main>
+      <!-- Stats Bar -->
+      <div class="statsbar">
+        <div class="stat-cell">
+          <span class="stat-dot"></span>
+          <span class="stat-label">En Línea:</span>
+          <span class="stat-value" data-online>1,312</span>
+        </div>
+        <div class="stat-cell"><span class="stat-label">EXP:</span><span class="stat-value">50x</span></div>
+        <div class="stat-cell"><span class="stat-label">Drop:</span><span class="stat-value">30x</span></div>
+        <div class="stat-cell"><span class="stat-label">Zen:</span><span class="stat-value">10x</span></div>
+        <div class="stat-cell"><span class="stat-label">Max Reset:</span><span class="stat-value">999</span></div>
+        <div class="stat-cell"><span class="stat-label">Season:</span><span class="stat-value">S21</span></div>
+      </div>
+    </section>
 
-    <script src="js/core.js"></script>
-    <script src="js/countdown.js"></script>
+    <!-- El Continente Te Espera -->
+    <section class="continent-section" id="continente">
+      <div class="wrap">
+        <div class="glyph-sep reveal">
+          <div class="gl"></div>
+          <div class="gs gold sm"></div>
+          <div class="gs gold"></div>
+          <div class="gs gold sm"></div>
+          <div class="gl"></div>
+        </div>
+        <div class="continent-grid">
+          <div class="continent-content">
+            <!-- Logo del Servidor -->
+            <div class="continent-logo reveal">
+              <img src="image/logo.png" alt="MU Maya S21" class="continent-logo-img">
+            </div>
+            <div class="eyebrow reveal">Características del Servidor</div>
+            <h2 class="reveal d1">El continente te espera con <em>nuevos desafíos</em></h2>
+            <p class="continent-lead reveal d2">Un servidor construido desde cero para ofrecer la experiencia definitiva
+              de MU Online Season 21.</p>
+            <p class="continent-body reveal d2">Economía cuidadosamente balanceada, sistemas anti-cheat de última
+              generación y un equipo dedicado que escucha a la comunidad.</p>
+            <p class="continent-body reveal d2">Únete a miles de jugadores en el servidor hispano de mayor crecimiento.
+              Castle Siege épicos, guerras de guild y una comunidad activa te esperan.</p>
+
+            <div class="feature-list reveal d3">
+              <div class="feature-item"><i data-lucide="shield" width="18" height="18"></i><span
+                  class="feature-text">Protección DDoS + Anti-hack personalizado</span></div>
+              <div class="feature-item"><i data-lucide="users" width="18" height="18"></i><span
+                  class="feature-text">Comunidad hispana activa · +1000 jugadores</span></div>
+              <div class="feature-item"><i data-lucide="trophy" width="18" height="18"></i><span
+                  class="feature-text">Eventos semanales con premios en WCoins</span></div>
+              <div class="feature-item"><i data-lucide="activity" width="18" height="18"></i><span
+                  class="feature-text">Uptime 99.9% · Servidores dedicados</span></div>
+              <div class="feature-item"><i data-lucide="star" width="18" height="18"></i><span
+                  class="feature-text">Soporte 24/7 · Staff comprometido</span></div>
+            </div>
+          </div>
+
+          <div class="continent-stats reveal d4">
+            <div class="rates-panel">
+              <div class="rate-cell">
+                <div class="rate-value">50x</div>
+                <div class="rate-label">Experiencia</div>
+              </div>
+              <div class="rate-cell">
+                <div class="rate-value">30x</div>
+                <div class="rate-label">Drop</div>
+              </div>
+              <div class="rate-cell">
+                <div class="rate-value">10x</div>
+                <div class="rate-label">Zen</div>
+              </div>
+              <div class="rate-cell">
+                <div class="rate-value">999</div>
+                <div class="rate-label">Max Reset</div>
+              </div>
+            </div>
+            <div class="classes-grid">
+              <div class="class-chip dkw">DK</div>
+              <div class="class-chip dk">DW</div>
+              <div class="class-chip fe">FE</div>
+              <div class="class-chip me">MG</div>
+              <div class="class-chip sm">SM</div>
+              <div class="class-chip su">SU</div>
+              <div class="class-chip rf">RF</div>
+              <div class="class-chip gl">GL</div>
+              <div class="class-chip le">LE</div>
+              <div class="class-chip mg">MG</div>
+              <div class="class-chip dl">DL</div>
+              <div class="class-chip le2">LM</div>
+              <div class="class-chip bk">BK</div>
+              <div class="class-chip sm2">SM</div>
+              <div class="class-chip gc">GC</div>
+              <div class="class-chip el">ELF</div>
+            </div>
+            <!-- Mini countdown -->
+            <div class="mini-countdown"
+              style="margin-top:20px;padding:16px;background:linear-gradient(135deg,var(--stone2),var(--stone3));border:1px solid var(--b-gold);border-radius:4px;">
+              <div
+                style="font-family:var(--ff-ui);font-size:9px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ash);margin-bottom:8px;">
+                Próximo Evento</div>
+              <div style="display:flex;gap:12px;justify-content:center;">
+                <div style="text-align:center;"><span
+                    style="font-family:var(--ff-display);font-size:20px;color:var(--gold4);" data-cd="h">00</span><span
+                    style="font-size:9px;color:var(--ash);display:block;">Hs</span></div>
+                <div style="text-align:center;"><span
+                    style="font-family:var(--ff-display);font-size:20px;color:var(--gold4);" data-cd="m">00</span><span
+                    style="font-size:9px;color:var(--ash);display:block;">Min</span></div>
+                <div style="text-align:center;"><span
+                    style="font-family:var(--ff-display);font-size:20px;color:var(--gold4);" data-cd="s">00</span><span
+                    style="font-size:9px;color:var(--ash);display:block;">Seg</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed Server Teaser -->
+    <section class="speed-teaser">
+      <div class="speed-grid-bg"></div>
+      <div class="wrap">
+        <div class="glyph-sep reveal">
+          <div class="gl"></div>
+          <div class="gs gold sm"></div>
+          <div class="gs jade"></div>
+          <div class="gs gold sm"></div>
+          <div class="gl"></div>
+        </div>
+        <div class="speed-teaser-grid">
+          <!-- Mitad Izquierda: Imagen -->
+          <div class="speed-teaser-image reveal">
+            <img src="image/speed.png" alt="Speed Server" class="speed-teaser-img">
+          </div>
+          <!-- Mitad Derecha: Información -->
+          <div class="speed-teaser-content">
+            <div class="speed-badge reveal"><span class="dot"></span>Evento Especial · Servidor Temporal · 7 Días</div>
+            <h2 class="reveal d1">Speed Server <em>MAYA</em></h2>
+            <p class="speed-teaser-desc reveal d2">El torneo que paraliza al continente. Igualdad total. Pura gloria.
+            </p>
+            <div class="speed-points reveal d2">
+              <div class="speed-point"><i data-lucide="zap" width="20" height="20"></i><span>EXP x500 primeras
+                  24h</span>
+              </div>
+              <div class="speed-point"><i data-lucide="trophy" width="20" height="20"></i><span>Competencia por
+                  clase</span>
+              </div>
+              <div class="speed-point"><i data-lucide="arrow-right-left" width="20" height="20"></i><span>Todo se
+                  transfiere
+                  al main</span></div>
+            </div>
+            <div class="speed-countdown reveal d3">
+              <div class="cd-unit"><span class="cd-value" data-cd="d">00</span><span class="cd-label">Días</span></div>
+              <div class="cd-unit"><span class="cd-value" data-cd="h">00</span><span class="cd-label">Hs</span></div>
+              <div class="cd-unit"><span class="cd-value" data-cd="m">00</span><span class="cd-label">Min</span></div>
+              <div class="cd-unit"><span class="cd-value" data-cd="s">00</span><span class="cd-label">Seg</span></div>
+            </div>
+            <a href="speed.html" class="speed-cta-btn reveal d4">Ver Detalles<i data-lucide="arrow-right" width="18"
+                height="18"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crusader Section -->
+    <section class="crusader-section">
+      <div class="crusader-content">
+        <div class="crusader-image-container reveal">
+          <img src="image/season21.png" alt="Crusader Class" class="crusader-img">
+        </div>
+        <h2 class="crusader-title reveal d1"><em>Crusader</em></h2>
+        <p class="crusader-subtitle reveal d2">La clase estrella del S21</p>
+        <div class="crusader-stats reveal d3">
+          <div class="crusader-stat">
+            <div class="crusader-stat-value">4</div>
+            <div class="crusader-stat-label">Skill Trees</div>
+          </div>
+          <div class="crusader-stat">
+            <div class="crusader-stat-value">12</div>
+            <div class="crusader-stat-label">Habilidades</div>
+          </div>
+          <div class="crusader-stat">
+            <div class="crusader-stat-value">∞</div>
+            <div class="crusader-stat-label">Poder</div>
+          </div>
+        </div>
+        <a href="#descargar" class="crusader-cta reveal d4"><i data-lucide="sword" width="18" height="18"></i>Crear
+          Crusader</a>
+      </div>
+    </section>
+
+    <!-- Últimas Noticias -->
+    <section class="news-section">
+      <div class="wrap">
+        <div class="glyph-sep reveal">
+          <div class="gl"></div>
+          <div class="gs gold sm"></div>
+          <div class="gs blood"></div>
+          <div class="gs gold sm"></div>
+          <div class="gl"></div>
+        </div>
+        <div class="section-header">
+          <div class="section-tag">Actualidad</div>
+          <h2 class="section-title">Últimas Noticias</h2>
+        </div>
+        <div class="news-grid">
+          <div class="news-featured reveal">
+            <div class="news-category"><span class="news-dot speed"></span>Speed Server</div>
+            <h3>Speed Server: Todo lo que necesitas saber antes del lanzamiento</h3>
+            <p class="news-excerpt">El evento más esperado del año está por comenzar. Conoce las reglas, recompensas y
+              estrategias para dominar el Speed Server de 7 días.</p>
+            <div class="news-meta"><span>Marzo 15, 2025</span><a href="noticias.html">Leer más<i
+                  data-lucide="arrow-right" width="16" height="16"></i></a></div>
+          </div>
+          <div class="news-cards">
+            <div class="news-card reveal d1">
+              <div class="news-category"><span class="news-dot siege"></span>Castle Siege</div>
+              <h3>Castle Siege: Inscripciones abiertas para la temporada #47</h3>
+              <p class="news-excerpt">Registra tu guild y prepárate para la batalla más épica del continente.</p>
+              <div class="news-meta"><span>Marzo 12, 2025</span><a href="noticias.html">Leer<i data-lucide="arrow-right"
+                    width="16" height="16"></i></a></div>
+            </div>
+            <div class="news-card reveal d2">
+              <div class="news-category"><span class="news-dot patch"></span>Patch Notes</div>
+              <h3>Parche 21.3: Balance de clases y nuevas optimizaciones</h3>
+              <p class="news-excerpt">Ajustes en Crusader, Magic Gladiator y correcciones de bugs reportados.</p>
+              <div class="news-meta"><span>Marzo 8, 2025</span><a href="noticias.html">Leer<i data-lucide="arrow-right"
+                    width="16" height="16"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Castle Siege -->
+    <section class="siege-section">
+      <div class="wrap">
+        <div class="glyph-sep reveal">
+          <div class="gl"></div>
+          <div class="gs gold sm"></div>
+          <div class="gs gold"></div>
+          <div class="gs gold sm"></div>
+          <div class="gl"></div>
+        </div>
+        <div class="siege-content">
+          <h2 class="siege-title reveal">Castle Siege</h2>
+          <p class="siege-subtitle reveal d1">El poder del continente está en juego</p>
+          <div class="siege-stats reveal d2">
+            <div class="siege-stat">
+              <div class="siege-stat-value">200</div>
+              <div class="siege-stat-label">Jugadores máx.</div>
+            </div>
+            <div class="siege-stat">
+              <div class="siege-stat-value">7</div>
+              <div class="siege-stat-label">Días de registro</div>
+            </div>
+            <div class="siege-stat">
+              <div class="siege-stat-value">48h</div>
+              <div class="siege-stat-label">Antelación</div>
+            </div>
+          </div>
+          <a href="cuenta.html" class="btn-p reveal d3">Registrar Guild</a>
+          <p class="siege-note reveal d4"
+            style="margin-top:20px;font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash);">Próximo Siege:
+            <strong style="color:var(--blood4);">Sábado 22 de Marzo · 20:00 hs GMT-3</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descarga -->
+    <section class="download-section" id="descargar">
+      <div class="wrap">
+        <div class="glyph-sep reveal">
+          <div class="gl"></div>
+          <div class="gs gold sm"></div>
+          <div class="gs jade"></div>
+          <div class="gs gold sm"></div>
+          <div class="gl"></div>
+        </div>
+        <div class="download-content">
+          <div class="download-steps reveal">
+            <div class="download-step"><span class="download-step-num">1</span><span>Crear cuenta</span></div>
+            <div class="download-step"><span class="download-step-num">2</span><span>Descargar cliente</span></div>
+            <div class="download-step"><span class="download-step-num">3</span><span>Instalar parche</span></div>
+            <div class="download-step"><span class="download-step-num">4</span><span>Jugar</span></div>
+          </div>
+          <div class="download-buttons reveal d1">
+            <a href="descargar.html" class="btn-download"><i data-lucide="download" width="18"
+                height="18"></i>Descargar</a>
+            <a href="descargar.html#mirror" class="btn-download btn-mirror"><i data-lucide="download" width="18"
+                height="18"></i>Mirror</a>
+          </div>
+          <div class="download-specs reveal d2">
+            <div class="spec-item"><i data-lucide="tag" width="14" height="14"></i><span>Versión 21.3</span></div>
+            <div class="spec-item"><i data-lucide="hard-drive" width="14" height="14"></i><span>4.2 GB</span></div>
+            <div class="spec-item"><i data-lucide="monitor" width="14" height="14"></i><span>Windows 10/11</span></div>
+            <div class="spec-item"><i data-lucide="gift" width="14" height="14"></i><span>Gratuito</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-in">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">MU Maya <span class="s21-tag">S21</span></div>
+          <p class="footer-desc">Servidor privado de MU Online Season 21 para la comunidad hispana.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Discord"><span class="soc-icon">D</span></a>
+            <a href="#" aria-label="Facebook"><span class="soc-icon">f</span></a>
+            <a href="#" aria-label="Telegram"><span class="soc-icon">T</span></a>
+            <a href="#" aria-label="YouTube"><span class="soc-icon">Y</span></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-t">Navegación</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Servidor</a></li>
+            <li><a href="speed.html">Speed Server</a></li>
+            <li><a href="rankings.html">Rankings</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="descargar.html">Descargar</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-t">Cuenta</div>
+          <ul class="footer-links">
+            <li><a href="cuenta.html">Ingresar</a></li>
+            <li><a href="cuenta.html#registro">Crear Cuenta</a></li>
+            <li><a href="cuenta.html#recuperar">Recuperar Contraseña</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-t">Soporte</div>
+          <ul class="footer-links">
+            <li><a href="#">Centro de Ayuda</a></li>
+            <li><a href="#">Reglas del Servidor</a></li>
+            <li><a href="#">Reportar Bug</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
+        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+      </div>
+      <div class="footer-disclaimer">No afiliado a Webzen Inc. MU Online es propiedad de Webzen.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/core.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
