@@ -1,9 +1,9 @@
-/* ───────────────────────────────────────────────────────────────────────────
-   MU MAYA S21 — Index Styles
+﻿/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   MU MAYA S21 â€” Index Styles
    Efectos visuales mejorados para el home
-   ─────────────────────────────────────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
-/* ── LOGO IMAGEN ────────────────────────────────────────────────────────── */
+/* â”€â”€ LOGO IMAGEN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
   vertical-align: middle;
 }
 
-/* ── HERO INDEX ── */
+/* â”€â”€ HERO INDEX â”€â”€ */
 .hero-index {
   position: relative;
   min-height: 100vh;
@@ -41,7 +41,18 @@
   overflow: visible;
   background: var(--void);
   padding-top: 80px;
-  padding-bottom: 150px;
+  padding-bottom: 220px;
+}
+
+.hero-panel {
+  max-width: 100%;
+  background: rgba(7, 6, 5, 0.78);
+  border: 1px solid rgba(63, 178, 255, 0.2);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.55), 0 0 50px rgba(246, 155, 58, 0.2);
+  backdrop-filter: blur(14px);
+  padding: 32px;
+  border-radius: 18px;
+  z-index: 6;
 }
 
 /* Wallpeaper de fondo - Profundidad sutil */
@@ -83,7 +94,7 @@
   width: 600px;
   height: 600px;
   background: radial-gradient(circle, rgba(122, 92, 255, 0.12), transparent 60%);
-  filter: blur(80px);
+  filter: blur(140px);
   z-index: 4;
   pointer-events: none;
   animation: hero-ambient-pulse-2 10s ease-in-out infinite 2s;
@@ -280,7 +291,7 @@
   max-height: 100%;
   height: auto;
   width: auto;
-  filter: brightness(1.35) saturate(1.45) contrast(1.1) drop-shadow(0 0 90px rgba(216, 168, 64, 1)) drop-shadow(0 0 180px rgba(216, 168, 64, 0.6)) drop-shadow(0 0 260px rgba(216, 168, 64, 0.3));
+  filter: brightness(1.15) saturate(1.25) contrast(1.08) drop-shadow(0 0 120px rgba(216, 168, 64, 0.65)) drop-shadow(0 0 220px rgba(56, 240, 194, 0.35));
   animation: hero-home-power-float 6s ease-in-out infinite;
 }
 
@@ -305,8 +316,8 @@
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(216, 168, 64, 0.6), rgba(216, 168, 64, 0.3) 40%, transparent 70%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(216, 168, 64, 0.5), rgba(216, 168, 64, 0.18) 40%, rgba(56, 240, 194, 0.14) 60%, transparent 75%);
+  filter: blur(140px);
   z-index: -1;
   animation: hero-home-glow-pulse 4s ease-in-out infinite;
 }
@@ -484,9 +495,9 @@
   position: relative;
   z-index: 15;
   text-align: center;
-  max-width: 1000px;
-  padding: 0 24px;
-  margin-top: 450px;
+  max-width: 1200px;
+  padding: 32px 36px;
+  margin: 620px auto 0 auto;
 }
 
 /* Corona mejorada */
@@ -711,7 +722,7 @@
   font-family: var(--ff-ui);
   font-size: 12px;
   color: var(--bone);
-  transition: all 0.3s var(--transition);
+  transition: color 0.3s var(--transition), background-color 0.3s var(--transition), border-color 0.3s var(--transition), opacity 0.3s var(--transition);
   position: relative;
 }
 
@@ -772,7 +783,7 @@
   text-align: center;
 }
 
-/* ── CONTINENT SECTION ── */
+/* â”€â”€ CONTINENT SECTION â”€â”€ */
 .continent-section {
   padding: var(--pad-section) 0;
   background: var(--bg-aurora);
@@ -949,7 +960,7 @@
   padding: 16px 18px;
   background: linear-gradient(90deg, rgba(216, 168, 64, 0.04), transparent);
   border-left: 3px solid var(--gold3);
-  transition: all 0.3s var(--transition);
+  transition: background 0.3s var(--transition), border-color 0.3s var(--transition), transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
 }
 
 .feature-item:hover {
@@ -986,7 +997,7 @@
   background: var(--stone2);
   padding: 22px 14px;
   text-align: center;
-  transition: all 0.3s var(--transition);
+  transition: background-color 0.3s var(--transition), box-shadow 0.3s var(--transition), border-color 0.3s var(--transition), transform 0.3s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -1058,7 +1069,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--bone);
-  transition: all 0.3s var(--transition);
+  transition: background 0.3s var(--transition), border-color 0.3s var(--transition), transform 0.3s var(--transition), box-shadow 0.3s var(--transition), color 0.3s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -1162,7 +1173,7 @@
   border-color: rgba(30, 82, 40, 0.5);
 }
 
-/* ── SPEED TEASER ── */
+/* â”€â”€ SPEED TEASER â”€â”€ */
 .speed-teaser {
   position: relative;
   padding: calc(var(--pad-section) * 0.85) 0;
@@ -1390,7 +1401,7 @@
   font-family: var(--ff-ui);
   font-size: var(--text-sm);
   color: var(--bone);
-  transition: all 0.3s var(--transition);
+  transition: background 0.3s var(--transition), border-color 0.3s var(--transition), transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
 }
 
 .speed-point:hover {
@@ -1420,7 +1431,7 @@
   background: linear-gradient(135deg, var(--stone2), var(--stone3));
   border: 1px solid var(--b-gold);
   min-width: 85px;
-  transition: all 0.3s var(--transition);
+  transition: background 0.3s var(--transition), border-color 0.3s var(--transition), transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -1526,7 +1537,7 @@
   }
 }
 
-/* ── CRUSADER SECTION ── */
+/* â”€â”€ CRUSADER SECTION â”€â”€ */
 .crusader-section {
   position: relative;
   padding: var(--pad-section) 0;
@@ -1597,7 +1608,7 @@
   border: 1px solid rgba(53, 208, 127, 0.28);
   box-shadow: 0 0 70px rgba(53, 208, 127, 0.35), 0 12px 70px rgba(0, 0, 0, 0.55);
   filter: brightness(1.2) saturate(1.25) drop-shadow(0 0 70px rgba(53, 208, 127, 0.35));
-  transition: all 0.4s var(--transition);
+  transition: filter 0.4s var(--transition), box-shadow 0.4s var(--transition), transform 0.4s var(--transition);
 }
 
 .crusader-img:hover {
@@ -1669,7 +1680,7 @@
   border: 1px solid var(--b-gold);
   position: relative;
   overflow: hidden;
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
 }
 
 .crusader-stat::before {
@@ -1722,7 +1733,7 @@
   letter-spacing: 0.15em;
   color: var(--void);
   text-decoration: none;
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition), color 0.4s var(--transition);
   animation: glow-intensify 3s ease-in-out infinite;
 }
 
@@ -1748,7 +1759,7 @@
   text-shadow: 0 0 12px rgba(216, 168, 64, 0.6);
 }
 
-/* ── NEWS SECTION ── */
+/* â”€â”€ NEWS SECTION â”€â”€ */
 .news-section {
   padding: calc(var(--pad-section) * 0.8) 0;
   background: var(--deep);
@@ -1805,7 +1816,7 @@
   border-top: 3px solid transparent;
   border-image: linear-gradient(90deg, var(--blood5), var(--amber3), var(--gold3));
   border-image-slice: 1;
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -1917,7 +1928,7 @@
   gap: 8px;
   color: var(--gold4);
   text-decoration: none;
-  transition: all 0.3s var(--transition);
+  transition: color 0.3s var(--transition), gap 0.3s var(--transition);
   font-weight: 500;
 }
 
@@ -1938,7 +1949,7 @@
   padding: 22px;
   background: linear-gradient(135deg, var(--stone), var(--stone2));
   border: 1px solid var(--b-void);
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -1983,7 +1994,7 @@
   margin-bottom: 14px;
 }
 
-/* ── SIEGE SECTION ── */
+/* â”€â”€ SIEGE SECTION â”€â”€ */
 .siege-section {
   position: relative;
   padding: var(--pad-section) 0;
@@ -2062,7 +2073,7 @@
   padding: 26px 36px;
   background: linear-gradient(135deg, var(--stone2), var(--stone3));
   border: 1px solid var(--b-blood);
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -2118,14 +2129,14 @@
   text-shadow: 0 0 12px rgba(208, 48, 48, 0.6);
 }
 
-/* ── DOWNLOAD SECTION ── */
+/* â”€â”€ DOWNLOAD SECTION â”€â”€ */
 .download-section {
   padding: calc(var(--pad-section) * 0.85) 0;
   background: var(--void);
   border-top: 1px solid var(--b-gold);
 }
 
-/* ── GALLERY HOME ── */
+/* â”€â”€ GALLERY HOME â”€â”€ */
 .gallery-home {
   padding: calc(var(--pad-section) * 0.7) 0;
   background: var(--abyss);
@@ -2182,7 +2193,7 @@
   }
 }
 
-/* ── MEDALLÓN / BADGE ── */
+/* â”€â”€ MEDALLÃ“N / BADGE â”€â”€ */
 .badge-medal {
   display: inline-flex;
   align-items: center;
@@ -2198,7 +2209,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* ── PATRÓN MAYA ── */
+/* â”€â”€ PATRÃ“N MAYA â”€â”€ */
 .maya-border {
   position: relative;
   overflow: hidden;
@@ -2217,7 +2228,7 @@
   mix-blend-mode: soft-light;
 }
 
-/* ── TIMELINE ── */
+/* â”€â”€ TIMELINE â”€â”€ */
 .timeline {
   max-width: 1100px;
   margin: 0 auto;
@@ -2311,7 +2322,7 @@
   font-family: var(--ff-display);
   font-size: 16px;
   color: var(--gold4);
-  transition: all 0.3s var(--transition);
+  transition: border-color 0.3s var(--transition), box-shadow 0.3s var(--transition), transform 0.3s var(--transition);
 }
 
 .download-step:hover .download-step-num {
@@ -2342,7 +2353,7 @@
   letter-spacing: 0.12em;
   color: var(--white-warm);
   text-decoration: none;
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition), box-shadow 0.4s var(--transition), color 0.4s var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -2400,7 +2411,7 @@
   color: var(--gold4);
 }
 
-/* ── RESPONSIVE ── */
+/* â”€â”€ RESPONSIVE â”€â”€ */
 @media (max-width: 1024px) {
 
   .continent-grid,
@@ -2495,3 +2506,71 @@
     justify-content: center;
   }
 }
+
+
+
+
+
+
+
+
+/* Hero: panel centrado y más abajo */
+.hero-content {
+  position: relative;
+  z-index: 15;
+  text-align: center;
+  max-width: 1280px;
+  padding: 32px 36px;
+  margin: 660px auto 0 auto;
+}
+@media (max-width: 1200px) {
+  .hero-content {
+    margin: 520px auto 0 auto;
+    padding: 26px;
+  }
+}
+@media (max-width: 800px) {
+  .hero-content {
+    margin: 420px auto 0 auto;
+    padding: 22px;
+  }
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-index::before,
+  .hero-index::after,
+  .hero-bg,
+  .stat-dot,
+  .rate-value,
+  .crusader-title em,
+  .crusader-img,
+  .crusader-cta,
+  .crusader-stat,
+  .siege-section::before,
+  .siege-section::after {
+    animation: none !important;
+  }
+}
+
+:root[data-motion="off"] .hero-index::before,
+:root[data-motion="off"] .hero-index::after,
+:root[data-motion="off"] .hero-bg,
+:root[data-motion="off"] .stat-dot,
+:root[data-motion="off"] .rate-value,
+:root[data-motion="off"] .crusader-title em,
+:root[data-motion="off"] .crusader-img,
+:root[data-motion="off"] .crusader-cta,
+:root[data-motion="off"] .crusader-stat,
+:root[data-motion="off"] .siege-section::before,
+:root[data-motion="off"] .siege-section::after {
+  animation: none !important;
+}
+

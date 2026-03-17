@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias · MU Maya S21</title>
+  <title>Noticias Â· MU Maya S21</title>
   <meta name="description" content="Noticias, parches y eventos de MU Maya S21.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="theme-color" content="#0a0806">`n<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
@@ -23,7 +23,8 @@
     .news-hero h1 { font-family: var(--ff-display); font-size: clamp(40px,8vw,68px); color: var(--white-warm); }
     .news-hero p { color: var(--bone2); font-size: var(--text-lg); max-width: 760px; margin: 12px auto 0; }
     .news-grid { max-width: 1200px; margin: -60px auto 80px; padding: 0 20px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .news-card { background: rgba(10,8,6,0.86); border:1px solid rgba(53,208,127,0.18); border-radius:16px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,0.45); display:flex; flex-direction:column; position:relative; }
+    .news-card { background: none; border: none; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; position:relative; }
+    .news-card.card-elite { padding:0; }
     .news-card::before { content:''; position:absolute; inset:0; background-image: linear-gradient(90deg, rgba(53,208,127,0.08) 1px, transparent 1px), linear-gradient(0deg, rgba(242,169,80,0.06) 1px, transparent 1px); background-size:22px 22px; opacity:0.18; pointer-events:none; mix-blend-mode:soft-light; }
     .news-thumb { height: 180px; background: url('image/Screenshots del servidor1.jpg') center/cover no-repeat; }
     .news-body { padding: 18px 18px 20px; display:flex; flex-direction:column; gap:10px; }
@@ -34,11 +35,12 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <div id="grain"></div>
   <canvas id="particles"></canvas>
   <nav id="nav">
     <div class="nav-in">
-      <a href="index.html" class="nav-logo"><img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img"><span class="s21-tag">S21</span></a>
+      <a href="index.html" class="nav-logo"><img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" width="585" height="427"><span class="s21-tag">S21</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Servidor</a></li>
         <li><a href="speed.html">Speed</a></li>
@@ -47,43 +49,44 @@
         <li><a href="descargar.html">Descargar</a></li>
       </ul>
       <div class="nav-acts">
+        <button class="motion-toggle" type="button" aria-pressed="false" onclick="toggleMotion()" title="Alternar animaciones">Animaciones: ON</button>
         <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
         <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
       </div>
-      <button class="nav-tog" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menÃº" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <main>
+  <main id="main">
     <section class="news-hero">
       <div>
         <h1>Noticias & Parches</h1>
-        <p>Mantente al día con eventos, balance y anuncios oficiales de MU Maya S21.</p>
+        <p>Mantente al dÃ­a con eventos, balance y anuncios oficiales de MU Maya S21.</p>
       </div>
     </section>
 
     <div class="news-grid">
-      <article class="news-card">
+      <article class="news-card card-elite">
         <div class="news-thumb" style="background-image:url('image/castlesieeee.jpg');"></div>
         <div class="news-body">
           <span class="news-badge">Evento</span>
-          <h2 class="news-title">Siege Weekend · Doble Premios</h2>
-          <div class="news-meta">17 Mar 2026 · GMT-3</div>
+          <h2 class="news-title">Siege Weekend Â· Doble Premios</h2>
+          <div class="news-meta">17 Mar 2026 Â· GMT-3</div>
           <p class="news-desc">Castle Siege con recompensas mejoradas para las 3 primeras alianzas. Participa con tu guild.</p>
-          <a class="news-link" href="#">Leer más <i data-lucide="arrow-right"></i></a>
+          <a class="news-link" href="#">Leer mÃ¡s <i data-lucide="arrow-right"></i></a>
         </div>
       </article>
-      <article class="news-card">
+      <article class="news-card card-elite">
         <div class="news-thumb" style="background-image:url('image/poderes crusader.jpg');"></div>
         <div class="news-body">
           <span class="news-badge" style="border-color:rgba(242,169,80,0.3);">Patch</span>
           <h2 class="news-title">Balance Crusader S21</h2>
           <div class="news-meta">15 Mar 2026</div>
-          <p class="news-desc">Ajustes de daño y mitigación, nuevas animaciones y revisión de skills en PvP/PvE.</p>
+          <p class="news-desc">Ajustes de daÃ±o y mitigaciÃ³n, nuevas animaciones y revisiÃ³n de skills en PvP/PvE.</p>
           <a class="news-link" href="#">Changelog <i data-lucide="arrow-right"></i></a>
         </div>
       </article>
-      <article class="news-card">
+      <article class="news-card card-elite">
         <div class="news-thumb" style="background-image:url('image/Screenshots del servidor.jpg');"></div>
         <div class="news-body">
           <span class="news-badge" style="border-color:rgba(53,208,127,0.3);">Comunidad</span>
@@ -99,8 +102,8 @@
   <footer id="footer">
     <div class="footer-in">
       <div class="footer-bottom">
-        <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
-        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+        <div class="footer-copy">Â© 2025 MU Maya S21 Â· Todos los derechos reservados</div>
+      <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span><span class="live-pill" style="margin-left:10px;"><span class="dot"></span>Actualizado hace 30s</span></div>
       </div>
     </div>
   </footer>
@@ -108,3 +111,4 @@
   <script>if(window.lucide){lucide.createIcons();}</script>
 </body>
 </html>
+

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cuenta · MU Maya S21</title>
   <meta name="description" content="Ingresa o crea tu cuenta para jugar MU Maya S21.">
+  <meta name="theme-color" content="#0a0806">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap">
@@ -30,7 +31,7 @@
   <canvas id="particles"></canvas>
   <nav id="nav">
     <div class="nav-in">
-      <a class="nav-logo" href="index.html"><img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img"><span class="s21-tag">S21</span></a>
+      <a class="nav-logo" href="index.html"><img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" width="585" height="427"><span class="s21-tag">S21</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Servidor</a></li>
         <li><a href="speed.html">Speed</a></li>
@@ -42,7 +43,7 @@
         <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
         <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
       </div>
-      <button class="nav-tog" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -59,9 +60,9 @@
         <h2><i data-lucide="log-in"></i> Ingresar</h2>
         <form class="acc-form">
           <label>Usuario</label>
-          <input type="text" placeholder="Tu usuario">
+          <input type="text" name="username" autocomplete="username" placeholder="Tu usuario">
           <label>Contraseña</label>
-          <input type="password" placeholder="********">
+          <input type="password" name="password" autocomplete="current-password" placeholder="********">
           <button type="button" class="btn-p">Ingresar</button>
           <a class="btn-ghost-xs" href="#recuperar">Recuperar contraseña</a>
         </form>
@@ -71,11 +72,11 @@
         <h2><i data-lucide="user-plus"></i> Crear Cuenta</h2>
         <form class="acc-form">
           <label>Email</label>
-          <input type="email" placeholder="email@ejemplo.com">
+          <input type="email" name="email" autocomplete="email" placeholder="email@ejemplo.com">
           <label>Usuario</label>
-          <input type="text" placeholder="nick">
+          <input type="text" name="new-username" autocomplete="username" placeholder="nick">
           <label>Contraseña</label>
-          <input type="password" placeholder="********">
+          <input type="password" name="new-password" autocomplete="new-password" placeholder="********">
           <button type="button" class="btn-o">Registrarme</button>
         </form>
       </div>

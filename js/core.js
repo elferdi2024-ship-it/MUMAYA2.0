@@ -6,6 +6,81 @@
 // Add JS class to html element
 document.documentElement.classList.add('js');
 
+const motionToggleBtn = document.querySelector('.motion-toggle');
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+let userMotionChoice = localStorage.getItem('motion') || 'on';
+
+function setMotionState(state) {
+  const isOff = state === 'off';
+  document.documentElement.dataset.motion = isOff ? 'off' : 'on';
+  if (motionToggleBtn) {
+    motionToggleBtn.setAttribute('aria-pressed', isOff ? 'true' : 'false');
+    motionToggleBtn.textContent = `Animaciones: ${isOff ? 'OFF' : 'ON'}`;
+  }
+
+  if (isOff) {
+    // Detener animaciones JS/CSS y limpiar estilos transitorios
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    }
+    if (typeof gsap !== 'undefined') {
+      gsap.killTweensOf('*');
+      gsap.globalTimeline.clear();
+    }
+    const resetSelectors = [
+      '.hero-el', '.statsbar', '.reveal', '.rate-value', '.class-chip', '.cd-unit',
+      '.crusader-img', '.crusader-cta', '.crusader-stat', '.siege-stat', '.news-card',
+      '.speed-point', '.download-step', '.feature-item'
+    ];
+    document.querySelectorAll(resetSelectors.join(',')).forEach(el => {
+      el.style.removeProperty('transform');
+      el.style.removeProperty('opacity');
+      el.style.removeProperty('transition-delay');
+      el.style.removeProperty('animation');
+    });
+    // Limpiar elementos decorativos con animación
+    const clearNodes = selector => document.querySelectorAll(selector).forEach(n => n.remove());
+    clearNodes('#embers .ember');
+    clearNodes('#runes .rune');
+  } else {
+    // Rehidratar decorativos y animaciones cuando se vuelve a activar
+    if (typeof buildEmbers === 'function') buildEmbers();
+    if (typeof buildRunes === 'function') buildRunes();
+    if (typeof initGsapAnimations === 'function') initGsapAnimations();
+  }
+
+  if (isOff && typeof cancelAnimationFrame !== 'undefined' && animationId) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+    if (ctx && canvas) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  } else if (!isOff && !animationId && canvas) {
+    initParticles();
+    animateParticles();
+  }
+}
+
+function motionAllowed() {
+  return document.documentElement.dataset.motion !== 'off';
+}
+
+function toggleMotion() {
+  const next = motionAllowed() ? 'off' : 'on';
+  userMotionChoice = next;
+  localStorage.setItem('motion', next);
+  setMotionState(next);
+}
+
+prefersReduced.addEventListener('change', (e) => {
+  const stored = localStorage.getItem('motion');
+  if (stored) {
+    setMotionState(stored);
+  } else {
+    setMotionState(e.matches ? 'off' : 'on');
+  }
+});
+
 /* ── NAV SCROLL ────────────────────────────────────────────────────────── */
 const nav = document.getElementById('nav');
 
@@ -25,7 +100,10 @@ const drawer = document.getElementById('drawer');
 
 function toggleDrawer() {
   drawer.classList.toggle('open');
-  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  const isOpen = drawer.classList.contains('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  const toggler = document.querySelector('.nav-tog');
+  if (toggler) toggler.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // Close drawer on escape key
@@ -67,11 +145,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ── CANVAS PARTICLES ──────────────────────────────────────────────────── */
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+let canvas = document.getElementById('particles');
+let ctx = canvas ? canvas.getContext('2d') : null;
 
 let particles = [];
-let animationId;
+let animationId = null;
 
 // Particle colors (gold, blood, jade, teal)
 const colors = [
@@ -152,14 +230,18 @@ function animateParticles() {
   animationId = requestAnimationFrame(animateParticles);
 }
 
+// inicializar estado de movimiento
+setMotionState(userMotionChoice === 'off' || prefersReduced.matches ? 'off' : 'on');
+
 // Initialize particles
-if (canvas) {
+if (canvas && motionAllowed()) {
   initParticles();
   animateParticles();
 
   // Resize handler
   window.addEventListener('resize', () => {
-    cancelAnimationFrame(animationId);
+    if (!motionAllowed()) return;
+    if (animationId) cancelAnimationFrame(animationId);
     initParticles();
     animateParticles();
   }, { passive: true });
@@ -174,6 +256,12 @@ setInterval(() => {
   onlineCount = Math.max(900, Math.min(1700, onlineCount + delta));
 
   onlineEls.forEach(el => {
+    if (!motionAllowed()) {
+      el.textContent = onlineCount.toLocaleString();
+      el.style.transition = 'none';
+      el.style.opacity = '1';
+      return;
+    }
     // Fade out/in effect on update
     el.style.transition = 'opacity 0.3s';
     el.style.opacity = '0.5';

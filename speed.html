@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speed Server - MU Maya S21 | Evento Especial 7 Días</title>
+  <title>Speed Server - MU Maya S21 | Evento Especial 7 DÃ­as</title>
   <meta name="description"
-    content="Speed Server MU Maya S21 - Evento especial de 7 días. EXP x500, competencia por clase, todo se transfiere al servidor principal. ¡Inscríbete ahora!">
+    content="Speed Server MU Maya S21 - Evento especial de 7 dÃ­as. EXP x500, competencia por clase, todo se transfiere al servidor principal. Â¡InscrÃ­bete ahora!">
 
-  <!-- Google Fonts -->
+    <meta name="theme-color" content="#0a0806">`n<!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
@@ -355,7 +355,7 @@
       gap: 6px;
     }
 
-    /* Countdown épico */
+    /* Countdown Ã©pico */
     .speed-countdown-epic {
       display: flex;
       justify-content: center;
@@ -1129,6 +1129,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <!-- Grain overlay -->
   <div id="grain"></div>
 
@@ -1139,7 +1140,7 @@
   <nav id="nav">
     <div class="nav-in">
       <a href="index.html" class="nav-logo">
-        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" fetchpriority="high">
+        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" fetchpriority="high" width="585" height="427">
         <span class="s21-tag">S21</span>
       </a>
       <ul class="nav-links">
@@ -1150,10 +1151,11 @@
         <li><a href="descargar.html" data-text="Descargar">Descargar</a></li>
       </ul>
       <div class="nav-acts">
+        <button class="motion-toggle" type="button" aria-pressed="false" onclick="toggleMotion()" title="Alternar animaciones">Animaciones: ON</button>
         <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
         <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
       </div>
-      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú">
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menÃº" aria-controls="drawer" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1163,7 +1165,7 @@
   <div id="drawer" onclick="toggleDrawer()">
     <div class="drawer-in" onclick="event.stopPropagation()">
       <a href="index.html" class="drawer-logo">
-        <img src="image/logo.png" alt="MU Maya S21" class="drawer-logo-img">
+        <img src="image/logo.png" alt="MU Maya S21" class="drawer-logo-img" width="585" height="427">
         <span class="s21-tag">S21</span>
       </a>
       <ul class="drawer-links">
@@ -1180,7 +1182,7 @@
     </div>
   </div>
 
-  <main>
+  <main id="main">
     <!-- Speed Hero -->
     <section class="speed-hero">
       <div class="speed-hero-grid"></div>
@@ -1189,50 +1191,48 @@
         <div class="speed-hero-copy">
           <div class="speed-hero-badge">
             <span class="dot"></span>
-            Evento Especial · Servidor Temporal · 7 Días
+            Evento Temporal Â· 7 DÃ­as Â· Transfer Total
           </div>
 
           <h1 class="speed-hero-title">
-            <div class="speed-text">SPEED</div>
-            <div class="lvlup-text">LVLUP</div>
-            <div class="maya-text">MAYA</div>
+            <span class="speed-text">Speed</span> <span class="lvlup-text">Server</span> <span class="maya-text">MAYA</span>
           </h1>
 
           <p class="speed-hero-desc">
-            El torneo que paraliza al continente. Igualdad total. Pura gloria.
+            Igualdad absoluta, premios altos y pase directo al Main. SÃ³lo 7 dÃ­as para dejar tu nombre.
           </p>
 
           <div class="speed-mini-stats">
-            <span class="mini-chip"><i data-lucide="users" width="14" height="14"></i> <strong>1,312</strong> en espera</span>
-            <span class="mini-chip"><i data-lucide="clock-3" width="14" height="14"></i> Cierra en <strong>7 días</strong></span>
-            <span class="mini-chip"><i data-lucide="ticket" width="14" height="14"></i> Transfer <strong>100%</strong> incluido</span>
+            <span class="mini-chip"><i data-lucide="zap" width="14" height="14"></i> <strong>EXP</strong> x500 primeras 24h</span>
+            <span class="mini-chip"><i data-lucide="clock-3" width="14" height="14"></i> <strong>DuraciÃ³n</strong> 7 dÃ­as exactos</span>
+            <span class="mini-chip"><i data-lucide="arrow-right-left" width="14" height="14"></i> <strong>Transfer</strong> 100% inventario</span>
           </div>
 
           <div class="speed-hero-stats">
             <div class="speed-hero-stat">
-              <div class="speed-hero-stat-value">7 DÍAS</div>
-              <div class="speed-hero-stat-label">Duración</div>
+              <div class="speed-hero-stat-value">7d</div>
+              <div class="speed-hero-stat-label">DuraciÃ³n</div>
             </div>
             <div class="speed-hero-stat">
-              <div class="speed-hero-stat-value">x500</div>
-              <div class="speed-hero-stat-label">EXP Máx</div>
+              <div class="speed-hero-stat-value">24h</div>
+              <div class="speed-hero-stat-label">Boost mÃ¡ximo</div>
             </div>
             <div class="speed-hero-stat">
-              <div class="speed-hero-stat-value">TODO</div>
-              <div class="speed-hero-stat-label">Se Transfiere</div>
+              <div class="speed-hero-stat-value">100%</div>
+              <div class="speed-hero-stat-label">Transfer</div>
             </div>
           </div>
 
           <div class="trust-bar">
-            <span class="trust-pill"><i data-lucide="zap" width="14" height="14"></i> EXP x500 primeras 24h</span>
-            <span class="trust-pill"><i data-lucide="trophy" width="14" height="14"></i> Premios top 3 por clase</span>
-            <span class="trust-pill"><i data-lucide="arrow-right-left" width="14" height="14"></i> Transfer 100% al main</span>
+            <span class="trust-pill"><i data-lucide="shield" width="14" height="14"></i>Anti-cheat + DDoS</span>
+            <span class="trust-pill"><i data-lucide="trophy" width="14" height="14"></i>Premios top 3 por clase</span>
+            <span class="trust-pill"><i data-lucide="arrow-right-left" width="14" height="14"></i>Transfer 100% al main</span>
           </div>
 
           <div class="speed-countdown-epic">
             <div class="cd-epic-unit">
               <span class="cd-epic-value" data-cd="d">00</span>
-              <span class="cd-epic-label">Días</span>
+              <span class="cd-epic-label">DÃ­as</span>
             </div>
             <div class="cd-epic-unit">
               <span class="cd-epic-value" data-cd="h">00</span>
@@ -1247,16 +1247,18 @@
               <span class="cd-epic-label">Seg</span>
             </div>
           </div>
-          <div class="countdown-meta">Inicio: 21 Mar 2026 · 20:00 GMT-3 · Servidor temporal sin prórroga</div>
+          <div class="countdown-meta">Inicio: 21 Mar 2026 Â· 20:00 GMT-3 Â· Servidor temporal sin prÃ³rroga</div>
+          <div class="live-pill" style="margin-top:8px;display:inline-flex;"><span class="dot"></span>Actualizado hace 30s</div>
 
           <a href="cuenta.html#registro" class="speed-hero-cta">
-            INSCRIBIRSE AHORA
+            Entrar al Speed
             <i data-lucide="arrow-right" width="18" height="18"></i>
           </a>
+          <div style="font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash2);margin-top:6px;">Gratis Â· Anti-cheat + DDoS Â· Balance por clase</div>
         </div>
         <div class="speed-hero-art">
           <div class="speed-hero-img-frame">
-            <img src="image/speed.png" alt="Speed Server Maya S21">
+            <img src="image/speed.png" alt="Speed Server Maya S21" class="img-toned">
             <div class="speed-hero-sticker">Transfer 100% garantizado</div>
           </div>
         </div>
@@ -1269,20 +1271,20 @@
         <span class="hype-item"><i data-lucide="trophy" width="16" height="16"></i> Top 3 de cada clase premia</span>
         <span class="hype-item"><i data-lucide="arrow-right-left" width="16" height="16"></i> Transfer 100% al main</span>
         <span class="hype-item"><i data-lucide="shield" width="16" height="16"></i> Igualdad total: kit inicial</span>
-        <span class="hype-item"><i data-lucide="clock" width="16" height="16"></i> Solo 7 días · sin prórroga</span>
+        <span class="hype-item"><i data-lucide="clock" width="16" height="16"></i> Solo 7 dÃ­as Â· sin prÃ³rroga</span>
         <span class="hype-item"><i data-lucide="zap" width="16" height="16"></i> EXP x500 primeras 24h</span>
         <span class="hype-item"><i data-lucide="trophy" width="16" height="16"></i> Top 3 de cada clase premia</span>
         <span class="hype-item"><i data-lucide="arrow-right-left" width="16" height="16"></i> Transfer 100% al main</span>
         <span class="hype-item"><i data-lucide="shield" width="16" height="16"></i> Igualdad total: kit inicial</span>
-        <span class="hype-item"><i data-lucide="clock" width="16" height="16"></i> Solo 7 días · sin prórroga</span>
+        <span class="hype-item"><i data-lucide="clock" width="16" height="16"></i> Solo 7 dÃ­as Â· sin prÃ³rroga</span>
       </div>
     </div>
 
-    <!-- Qué es Speed Server -->
+    <!-- QuÃ© es Speed Server -->
     <section class="speed-section">
       <div class="section-header">
-        <div class="section-tag">Información</div>
-        <h2 class="section-title">¿Qué es el Speed Server?</h2>
+        <div class="section-tag">InformaciÃ³n</div>
+        <h2 class="section-title">Â¿QuÃ© es el Speed Server?</h2>
       </div>
 
       <div class="features-grid">
@@ -1291,7 +1293,7 @@
             <i data-lucide="zap" width="28" height="28"></i>
           </div>
           <h3 class="feature-title">EXP x500</h3>
-          <p class="feature-desc">Primeras 24h x500. Luego x300. Canales exclusivos 8–11 con códigos de ayuda.</p>
+          <p class="feature-desc">Primeras 24h x500. Luego x300. Canales exclusivos 8â€“11 con cÃ³digos de ayuda.</p>
         </div>
 
         <div class="feature-card reveal d1">
@@ -1322,16 +1324,16 @@
           <div class="feature-icon">
             <i data-lucide="clock" width="28" height="28"></i>
           </div>
-          <h3 class="feature-title">7 Días Exactos</h3>
+          <h3 class="feature-title">7 DÃ­as Exactos</h3>
           <p class="feature-desc">Servidor temporal. Fecha de cierre anunciada. Sin sorpresas ni extensiones.</p>
         </div>
       </div>
 
       <div class="speed-gallery" style="margin-top:42px;">
         <div class="gallery-grid">
-          <div class="gallery-item"><img src="image/Screenshots del servidor.jpg" alt="Gameplay Maya S21" loading="lazy" decoding="async"></div>
-          <div class="gallery-item"><img src="image/Screenshots del servidor1.jpg" alt="Eventos Maya S21" loading="lazy" decoding="async"></div>
-          <div class="gallery-item"><img src="image/wallpeaper1.jpg" alt="Ambiente Maya S21" loading="lazy" decoding="async"></div>
+          <div class="gallery-item"><img class="img-toned" src="image/Screenshots del servidor.jpg" alt="Gameplay Maya S21" loading="lazy" decoding="async" width="1280" height="960"></div>
+          <div class="gallery-item"><img class="img-toned" src="image/Screenshots del servidor1.jpg" alt="Eventos Maya S21" loading="lazy" decoding="async" width="1280" height="720"></div>
+          <div class="gallery-item"><img class="img-toned" src="image/wallpeaper1.jpg" alt="Ambiente Maya S21" loading="lazy" decoding="async" width="1920" height="1080"></div>
         </div>
       </div>
     </section>
@@ -1347,16 +1349,16 @@
         <div class="rule-item reveal">
           <div class="rule-number">1</div>
           <div class="rule-content">
-            <h3>Servidor Temporal — 7 Días</h3>
-            <p>Servidor independiente del principal. Personajes desde Lv.1 en condiciones idénticas para todos.</p>
+            <h3>Servidor Temporal â€” 7 DÃ­as</h3>
+            <p>Servidor independiente del principal. Personajes desde Lv.1 en condiciones idÃ©nticas para todos.</p>
           </div>
         </div>
 
         <div class="rule-item reveal d1">
           <div class="rule-number">2</div>
           <div class="rule-content">
-            <h3>EXP Masiva — x500 primeras 24h</h3>
-            <p>x300 días siguientes. Solo en Canales 8, 9, 10 y 11 se activan los códigos de ayuda /LVL.</p>
+            <h3>EXP Masiva â€” x500 primeras 24h</h3>
+            <p>x300 dÃ­as siguientes. Solo en Canales 8, 9, 10 y 11 se activan los cÃ³digos de ayuda /LVL.</p>
           </div>
         </div>
 
@@ -1395,7 +1397,7 @@
 
       <!-- Ranking por Clase -->
       <div class="rewards-grid">
-        <div class="reward-card gold reveal">
+        <div class="reward-card gold reveal card-elite">
           <div class="reward-rank">1er Lugar por Clase</div>
           <h3 class="reward-title">ORO</h3>
           <ul class="reward-list">
@@ -1406,7 +1408,7 @@
           </ul>
         </div>
 
-        <div class="reward-card silver reveal d1">
+        <div class="reward-card silver reveal d1 card-elite">
           <div class="reward-rank">2do Lugar por Clase</div>
           <h3 class="reward-title">PLATA</h3>
           <ul class="reward-list">
@@ -1417,7 +1419,7 @@
           </ul>
         </div>
 
-        <div class="reward-card bronze reveal d2">
+        <div class="reward-card bronze reveal d2 card-elite">
           <div class="reward-rank">3er Lugar por Clase</div>
           <h3 class="reward-title">BRONCE</h3>
           <ul class="reward-list">
@@ -1481,21 +1483,21 @@
         </div>
       </div>
 
-      <!-- Ruud Automático -->
+      <!-- Ruud AutomÃ¡tico -->
       <div class="milestones-container" style="margin-top: 50px;">
         <div class="section-header">
-          <h3 class="section-title" style="font-size: var(--text-xl);">Ruud Automático por Nivel</h3>
+          <h3 class="section-title" style="font-size: var(--text-xl);">Ruud AutomÃ¡tico por Nivel</h3>
           <p style="font-family: var(--ff-ui); font-size: var(--text-sm); color: var(--ash); margin-top: 12px;">
-            100 Ruud por cada nivel de Lv.401 a Lv.800 — <strong style="color: var(--gold4);">Total máximo: 40.000 Ruud automáticos</strong>
+            100 Ruud por cada nivel de Lv.401 a Lv.800 â€” <strong style="color: var(--gold4);">Total mÃ¡ximo: 40.000 Ruud automÃ¡ticos</strong>
           </p>
         </div>
       </div>
 
       <!-- Carrera Crusader -->
       <div class="crusader-race-card reveal" style="margin-top: 50px;">
-        <h3 class="crusader-race-title"><em>Carrera Crusader</em> — Premio Especial</h3>
+        <h3 class="crusader-race-title"><em>Carrera Crusader</em> â€” Premio Especial</h3>
         <p class="crusader-race-desc">
-          El primer Crusader en llegar al nivel máximo en <strong>cuenta nueva</strong> gana el grand prize
+          El primer Crusader en llegar al nivel mÃ¡ximo en <strong>cuenta nueva</strong> gana el grand prize
         </p>
         <div class="crusader-race-prize">
           <div class="crusader-prize-item">
@@ -1526,21 +1528,21 @@
       </div>
 
       <div class="faq-container">
-        <div class="faq-item reveal">
+        <div class="faq-item reveal card-elite" style="padding:0 0 0 0;">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Pierdo lo que farmeo cuando termina el Speed?</span>
+            <span class="faq-question-text">Â¿Pierdo lo que farmeo cuando termina el Speed?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              ¡No! Todo lo que farmees (equipo, Zen, joyas) se transfiere al servidor principal mediante un ticket gratuito por cuenta al finalizar el evento.
+              Â¡No! Todo lo que farmees (equipo, Zen, joyas) se transfiere al servidor principal mediante un ticket gratuito por cuenta al finalizar el evento.
             </div>
           </div>
         </div>
 
-        <div class="faq-item reveal d1">
+        <div class="faq-item reveal d1 card-elite" style="padding:0 0 0 0;">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Puedo participar con un personaje ya existente?</span>
+            <span class="faq-question-text">Â¿Puedo participar con un personaje ya existente?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
@@ -1552,55 +1554,55 @@
 
         <div class="faq-item reveal d2">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Cuántos personajes puedo llevar al Speed?</span>
+            <span class="faq-question-text">Â¿CuÃ¡ntos personajes puedo llevar al Speed?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Un personaje por clase. Puedes participar con múltiples clases, pero cada una compite independientemente en su ranking.
+              Un personaje por clase. Puedes participar con mÃºltiples clases, pero cada una compite independientemente en su ranking.
             </div>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Cómo funciona el transfer al servidor principal?</span>
+            <span class="faq-question-text">Â¿CÃ³mo funciona el transfer al servidor principal?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Al finalizar el Speed Server, tendrás 7 días para reclamar tu ticket de transfer gratuito. Este transfiere todo el inventario, Zen y joyas a tu cuenta principal.
+              Al finalizar el Speed Server, tendrÃ¡s 7 dÃ­as para reclamar tu ticket de transfer gratuito. Este transfiere todo el inventario, Zen y joyas a tu cuenta principal.
             </div>
           </div>
         </div>
 
         <div class="faq-item reveal d1">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Los WCoins son transferibles al main?</span>
+            <span class="faq-question-text">Â¿Los WCoins son transferibles al main?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Sí, los WCoins ganados como premio se acreditan directamente en tu cuenta principal y son completamente transferibles.
+              SÃ­, los WCoins ganados como premio se acreditan directamente en tu cuenta principal y son completamente transferibles.
             </div>
           </div>
         </div>
 
         <div class="faq-item reveal d2">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Qué pasa si ya tengo nivel 1601+?</span>
+            <span class="faq-question-text">Â¿QuÃ© pasa si ya tengo nivel 1601+?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Personajes nivel 1601+ que hagan reset para ingresar serán baneados 4 semanas o permanentemente. Cualquier personaje 1601+ que se beneficie del evento será sancionado.
+              Personajes nivel 1601+ que hagan reset para ingresar serÃ¡n baneados 4 semanas o permanentemente. Cualquier personaje 1601+ que se beneficie del evento serÃ¡ sancionado.
             </div>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿Hay penalización por no llegar al nivel máximo?</span>
+            <span class="faq-question-text">Â¿Hay penalizaciÃ³n por no llegar al nivel mÃ¡ximo?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
@@ -1612,12 +1614,12 @@
 
         <div class="faq-item reveal d1">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span class="faq-question-text">¿El Crusader tiene ventaja en la carrera de clase?</span>
+            <span class="faq-question-text">Â¿El Crusader tiene ventaja en la carrera de clase?</span>
             <i data-lucide="chevron-down" class="faq-icon" width="20" height="20"></i>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              No. Todas las clases están balanceadas para el Speed Server. El Crusader es la clase estrella del S21 pero no tiene ventajas numéricas.
+              No. Todas las clases estÃ¡n balanceadas para el Speed Server. El Crusader es la clase estrella del S21 pero no tiene ventajas numÃ©ricas.
             </div>
           </div>
         </div>
@@ -1626,10 +1628,10 @@
 
     <!-- CTA Final -->
     <section class="speed-cta-final">
-      <h2 class="reveal">¿Estás listo para la gloria?</h2>
+      <h2 class="reveal">Â¿EstÃ¡s listo para la gloria?</h2>
       <div class="speed-cta-buttons">
-        <a href="cuenta.html#registro" class="btn-p reveal d1">Crear Cuenta — GRATIS</a>
-        <a href="descargar.html" class="btn-o reveal d2">Descargar Cliente</a>
+        <a href="cuenta.html#registro" class="btn-p reveal d1">Crear Cuenta Gratis</a>
+        <a href="descargar.html" class="btn-o reveal d2">Descargar Cliente 4.2GB</a>
       </div>
     </section>
   </main>
@@ -1649,7 +1651,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <div class="footer-t">Navegación</div>
+          <div class="footer-t">NavegaciÃ³n</div>
           <ul class="footer-links">
             <li><a href="index.html">Servidor</a></li>
             <li><a href="speed.html">Speed Server</a></li>
@@ -1663,7 +1665,7 @@
           <ul class="footer-links">
             <li><a href="cuenta.html">Ingresar</a></li>
             <li><a href="cuenta.html#registro">Crear Cuenta</a></li>
-            <li><a href="cuenta.html#recuperar">Recuperar Contraseña</a></li>
+            <li><a href="cuenta.html#recuperar">Recuperar ContraseÃ±a</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1677,8 +1679,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
-        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+        <div class="footer-copy">Â© 2025 MU Maya S21 Â· Todos los derechos reservados</div>
+        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span><span class="live-pill" style="margin-left:10px;"><span class="dot"></span>Actualizado hace 30s</span></div>
       </div>
       <div class="footer-disclaimer">No afiliado a Webzen Inc. MU Online es propiedad de Webzen.</div>
     </div>
@@ -1757,3 +1759,7 @@
 </body>
 
 </html>
+
+
+
+

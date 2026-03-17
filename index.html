@@ -7,6 +7,7 @@
   <title>MU Maya S21 — Season 21 · El Crusader Despierta</title>
   <meta name="description"
     content="Servidor privado de MU Online Season 21. Únete a la comunidad hispana más grande. Castle Siege, rankings, eventos y más.">
+  <meta name="theme-color" content="#0a0806">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
   <!-- Grain overlay -->
   <div id="grain"></div>
 
@@ -37,7 +39,7 @@
   <nav id="nav">
     <div class="nav-in">
       <a href="index.html" class="nav-logo">
-        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" fetchpriority="high">
+        <img src="image/logo.png" alt="MU Maya S21" class="nav-logo-img" fetchpriority="high" width="585" height="427">
         <span class="s21-tag">S21</span>
       </a>
       <ul class="nav-links">
@@ -48,10 +50,11 @@
         <li><a href="descargar.html" data-text="Descargar">Descargar</a></li>
       </ul>
       <div class="nav-acts">
+        <button class="motion-toggle" type="button" aria-pressed="false" onclick="toggleMotion()" title="Alternar animaciones">Animaciones: ON</button>
         <a href="cuenta.html" class="btn-ghost-xs">Ingresar</a>
         <a href="cuenta.html#registro" class="btn-solid-xs">Crear Cuenta</a>
       </div>
-      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú">
+      <button class="nav-tog" onclick="toggleDrawer()" aria-label="Abrir menú" aria-controls="drawer" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -61,7 +64,7 @@
   <div id="drawer" onclick="toggleDrawer()">
     <div class="drawer-in" onclick="event.stopPropagation()">
       <a href="index.html" class="drawer-logo">
-        <img src="image/logo.png" alt="MU Maya S21" class="drawer-logo-img">
+        <img src="image/logo.png" alt="MU Maya S21" class="drawer-logo-img" width="585" height="427">
         <span class="s21-tag">S21</span>
       </a>
       <ul class="drawer-links">
@@ -78,7 +81,7 @@
     </div>
   </div>
 
-  <main>
+  <main id="main">
     <!-- Hero -->
     <section class="hero-index">
       <!-- Wallpeaper de fondo para profundidad -->
@@ -117,7 +120,7 @@
 
       <!-- HOME Image - Hero Principal CON PODER (ENCIMA DE TODO) -->
       <div class="hero-home-image">
-        <img src="image/HOME.png" alt="MU Maya S21" class="hero-home-img">
+        <img src="image/HOME.png" alt="MU Maya S21" class="hero-home-img" width="1280" height="941">
         <div class="hero-home-glow"></div>
       </div>
 
@@ -129,7 +132,7 @@
 
       <div class="hero-vignette"></div>
 
-      <div class="hero-content">
+      <div class="hero-content hero-panel">
         <!-- Corona -->
         <div class="corona hero-el">
           <div class="corona-line"></div>
@@ -147,18 +150,39 @@
 
         <div class="eyebrow hero-el">Servidor Privado · Continente de MU · Grand Opening 2025</div>
         <div class="hero-subtitle hero-el">Season 21 — El Crusader Despierta</div>
-        <p class="hero-desc hero-el">Un servidor construido desde cero para ofrecer la experiencia definitiva de MU
-          Online Season 21. Economía balanceada, sistemas competitivos y eventos exclusivos para la verdadera comunidad
-          hispana.</p>
+        <p class="hero-desc hero-el">Economía balanceada, eventos propios, anti-cheat y transfer completo al main. 7 días Speed + Main estable.</p>
 
         <div class="hero-cta hero-el">
-          <a href="cuenta.html#registro" class="btn-p">Comenzar</a>
-          <a href="speed.html" class="btn-o">Speed Server</a>
-          <a href="#continente" class="btn-ghost-xs">El Servidor</a>
+          <a href="cuenta.html#registro" class="btn-p">Crear Cuenta Gratis</a>
+          <a href="speed.html" class="btn-o">Entrar al Speed</a>
+          <a href="#continente" class="btn-ghost-xs">Conoce el Servidor</a>
+        </div>
+        <div class="hero-el" style="margin-top:10px;font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash2);">
+          Anti-cheat + DDoS · Transfer 100% inventario · Soporte 24/7
         </div>
       </div>
 
+
       <div class="scroll-cue"></div>
+
+      <!-- Why Maya -->
+      <div class="why-maya reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:var(--gap-md);">
+        <div class="card-elite" style="padding:16px;">
+          <div class="section-tag" style="margin-bottom:6px;">Premios</div>
+          <div class="hero-subtitle" style="font-size:var(--text-lg);margin-bottom:6px;">Loot serio</div>
+          <p style="font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash);">Wings L3, sets Bloodangel, WCoins y Ruud en top 3 por clase.</p>
+        </div>
+        <div class="card-elite" style="padding:16px;">
+          <div class="section-tag" style="margin-bottom:6px;">Igualdad</div>
+          <div class="hero-subtitle" style="font-size:var(--text-lg);margin-bottom:6px;">Balance real</div>
+          <p style="font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash);">Speed de 7 días con start kit y anti-cheat; sin pay-to-win.</p>
+        </div>
+        <div class="card-elite" style="padding:16px;">
+          <div class="section-tag" style="margin-bottom:6px;">Transfer</div>
+          <div class="hero-subtitle" style="font-size:var(--text-lg);margin-bottom:6px;">100% al main</div>
+          <p style="font-family:var(--ff-ui);font-size:var(--text-sm);color:var(--ash);">Todo lo que farmees pasa al main: equipo, zen, joyas, WCoins.</p>
+        </div>
+      </div>
 
       <!-- Stats Bar -->
       <div class="statsbar">
@@ -172,6 +196,9 @@
         <div class="stat-cell"><span class="stat-label">Zen:</span><span class="stat-value">10x</span></div>
         <div class="stat-cell"><span class="stat-label">Max Reset:</span><span class="stat-value">999</span></div>
         <div class="stat-cell"><span class="stat-label">Season:</span><span class="stat-value">S21</span></div>
+        <div class="stat-cell">
+          <span class="live-pill"><span class="dot"></span>Actualizado hace 30s</span>
+        </div>
       </div>
     </section>
 
@@ -186,10 +213,10 @@
           <div class="gl"></div>
         </div>
         <div class="continent-grid">
-          <div class="continent-content">
+          <div class="continent-content card-elite" style="padding:24px;">
             <!-- Logo del Servidor -->
         <div class="continent-logo reveal">
-          <img src="image/logo.png" alt="MU Maya S21" class="continent-logo-img" loading="lazy" decoding="async">
+          <img src="image/logo.png" alt="MU Maya S21" class="continent-logo-img" loading="lazy" decoding="async" width="585" height="427">
         </div>
             <div class="eyebrow reveal">Características del Servidor</div>
             <h2 class="reveal d1">El continente te espera con <em>nuevos desafíos</em></h2>
@@ -214,7 +241,7 @@
             </div>
           </div>
 
-          <div class="continent-stats reveal d4">
+          <div class="continent-stats reveal d4 card-elite" style="padding:24px;">
             <div class="rates-panel">
               <div class="rate-cell">
                 <div class="rate-value">50x</div>
@@ -305,9 +332,9 @@
     <section class="gallery-home">
       <div class="wrap">
         <div class="gallery-grid">
-          <div class="gallery-card reveal"><img src="image/Screenshots del servidor.jpg" alt="Gameplay Maya S21" loading="lazy" decoding="async"></div>
-          <div class="gallery-card reveal d1"><img src="image/Screenshots del servidor1.jpg" alt="Eventos Maya S21" loading="lazy" decoding="async"></div>
-          <div class="gallery-card reveal d2"><img src="image/castlesieeee.jpg" alt="Castle Siege" loading="lazy" decoding="async"></div>
+          <div class="gallery-card reveal"><img class="img-toned" src="image/Screenshots del servidor.jpg" alt="Gameplay Maya S21" loading="lazy" decoding="async" width="1280" height="960"></div>
+          <div class="gallery-card reveal d1"><img class="img-toned" src="image/Screenshots del servidor1.jpg" alt="Eventos Maya S21" loading="lazy" decoding="async" width="1280" height="720"></div>
+          <div class="gallery-card reveal d2"><img class="img-toned" src="image/castlesieeee.jpg" alt="Castle Siege" loading="lazy" decoding="async" width="3840" height="2160"></div>
         </div>
       </div>
     </section>
@@ -330,7 +357,7 @@
         <div class="speed-teaser-grid">
           <!-- Mitad Izquierda: Imagen -->
           <div class="speed-teaser-image reveal">
-            <img src="image/speed.png" alt="Speed Server" class="speed-teaser-img">
+            <img src="image/speed.png" alt="Speed Server" class="speed-teaser-img" width="994" height="658">
           </div>
           <!-- Mitad Derecha: Información -->
           <div class="speed-teaser-content">
@@ -366,7 +393,7 @@
     <section class="crusader-section">
       <div class="crusader-content">
         <div class="crusader-image-container reveal">
-          <img src="image/poderes crusader.jpg" alt="Crusader Class" class="crusader-img" loading="lazy" decoding="async">
+          <img src="image/poderes crusader.jpg" alt="Crusader Class" class="crusader-img" loading="lazy" decoding="async" width="405" height="720">
         </div>
         <h2 class="crusader-title reveal d1"><em>Crusader</em></h2>
         <p class="crusader-subtitle reveal d2">La clase estrella del S21</p>
@@ -404,23 +431,22 @@
           <h2 class="section-title">Últimas Noticias</h2>
         </div>
         <div class="news-grid">
-          <div class="news-featured reveal">
+          <div class="news-featured reveal card-elite">
             <div class="news-category"><span class="news-dot speed"></span>Speed Server</div>
             <h3>Speed Server: Todo lo que necesitas saber antes del lanzamiento</h3>
-            <p class="news-excerpt">El evento más esperado del año está por comenzar. Conoce las reglas, recompensas y
-              estrategias para dominar el Speed Server de 7 días.</p>
+            <p class="news-excerpt">Evento de 7 días, EXP x500 inicial, transfer total y premios por clase. Prepárate con las reglas y la ruta rápida.</p>
             <div class="news-meta"><span>Marzo 15, 2025</span><a href="noticias.html">Leer más<i
                   data-lucide="arrow-right" width="16" height="16"></i></a></div>
           </div>
           <div class="news-cards">
-            <div class="news-card reveal d1">
+            <div class="news-card reveal d1 card-elite">
               <div class="news-category"><span class="news-dot siege"></span>Castle Siege</div>
               <h3>Castle Siege: Inscripciones abiertas para la temporada #47</h3>
               <p class="news-excerpt">Registra tu guild y prepárate para la batalla más épica del continente.</p>
               <div class="news-meta"><span>Marzo 12, 2025</span><a href="noticias.html">Leer<i data-lucide="arrow-right"
                     width="16" height="16"></i></a></div>
             </div>
-            <div class="news-card reveal d2">
+            <div class="news-card reveal d2 card-elite">
               <div class="news-category"><span class="news-dot patch"></span>Patch Notes</div>
               <h3>Parche 21.3: Balance de clases y nuevas optimizaciones</h3>
               <p class="news-excerpt">Ajustes en Crusader, Magic Gladiator y correcciones de bugs reportados.</p>
@@ -479,27 +505,27 @@
           <div class="gl"></div>
         </div>
         <div class="download-content">
-          <div class="download-steps reveal">
-            <div class="download-step"><span class="download-step-num">1</span><span>Crear cuenta</span></div>
-            <div class="download-step"><span class="download-step-num">2</span><span>Descargar cliente</span></div>
-            <div class="download-step"><span class="download-step-num">3</span><span>Instalar parche</span></div>
-            <div class="download-step"><span class="download-step-num">4</span><span>Jugar</span></div>
-          </div>
-          <div class="download-buttons reveal d1">
-            <a href="descargar.html" class="btn-download"><i data-lucide="download" width="18"
-                height="18"></i>Descargar</a>
-            <a href="descargar.html#mirror" class="btn-download btn-mirror"><i data-lucide="download" width="18"
-                height="18"></i>Mirror</a>
-          </div>
-          <div class="download-specs reveal d2">
-            <div class="spec-item"><i data-lucide="tag" width="14" height="14"></i><span>Versión 21.3</span></div>
-            <div class="spec-item"><i data-lucide="hard-drive" width="14" height="14"></i><span>4.2 GB</span></div>
-            <div class="spec-item"><i data-lucide="monitor" width="14" height="14"></i><span>Windows 10/11</span></div>
-            <div class="spec-item"><i data-lucide="gift" width="14" height="14"></i><span>Gratuito</span></div>
+            <div class="download-steps reveal card-elite" style="padding:16px;">
+              <div class="download-step"><span class="download-step-num">1</span><span>Crear cuenta</span></div>
+              <div class="download-step"><span class="download-step-num">2</span><span>Descargar cliente</span></div>
+              <div class="download-step"><span class="download-step-num">3</span><span>Instalar parche</span></div>
+              <div class="download-step"><span class="download-step-num">4</span><span>Jugar</span></div>
+            </div>
+            <div class="download-buttons reveal d1">
+              <a href="descargar.html" class="btn-download"><i data-lucide="download" width="18"
+                  height="18"></i>Descargar</a>
+              <a href="descargar.html#mirror" class="btn-download btn-mirror"><i data-lucide="download" width="18"
+                  height="18"></i>Mirror</a>
+            </div>
+            <div class="download-specs reveal d2 card-elite" style="padding:12px 16px;">
+              <div class="spec-item"><i data-lucide="tag" width="14" height="14"></i><span>Versión 21.3</span></div>
+              <div class="spec-item"><i data-lucide="hard-drive" width="14" height="14"></i><span>4.2 GB</span></div>
+              <div class="spec-item"><i data-lucide="monitor" width="14" height="14"></i><span>Windows 10/11</span></div>
+              <div class="spec-item"><i data-lucide="gift" width="14" height="14"></i><span>Gratuito · Anti-cheat firmado</span></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   </main>
 
   <!-- Footer -->
@@ -546,7 +572,7 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2025 MU Maya S21 · Todos los derechos reservados</div>
-        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span></div>
+        <div class="footer-status"><span class="status-dot"></span><span>Servidor Online</span><span class="live-pill" style="margin-left:10px;"><span class="dot"></span>Actualizado hace 30s</span></div>
       </div>
       <div class="footer-disclaimer">No afiliado a Webzen Inc. MU Online es propiedad de Webzen.</div>
     </div>
